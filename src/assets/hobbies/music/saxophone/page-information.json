@@ -1,0 +1,22 @@
+{
+    "Title": "Piano",
+    "Description": "",
+    "Date": "",
+    "Tags": "['Music', 'Creativity', 'Math']",
+    "Favorites": "",
+    "Influences": {
+        "Miles Davis":"", 
+        "Bill Evans":"", 
+        "Keith Ebeltoft":"",
+        "Pianist from The Doors":"",
+        "Herbie Hancock":""
+    },
+    "Current Working Areas": {
+        "Technique":{},
+        "Music Theory":{}
+    },
+    "Media Links":[],
+    "Plugins":[{
+
+    }]
+}

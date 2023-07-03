@@ -1,0 +1,8 @@
+<div class="container">
+    <div  *ngFor="let item of array">
+        <card
+        [difficulty]="item.difficulty"
+        [title]="item.title"
+        [description]="item.description"></card>
+    </div>
+</div>

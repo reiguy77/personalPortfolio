@@ -1,0 +1,128 @@
+/* You can add global styles to this file, and also import other style files */
+/* Application-wide Styles */
+@import url('https://cdn.jsdelivr.net/npm/lightgallery@2.0.0-beta.4/css/lightgallery.css');
+@import url('https://cdn.jsdelivr.net/npm/lightgallery@2.0.0-beta.4/css/lg-zoom.css');
+@import url('https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.css');
+// @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@dark-purple: #210124;
+@light-purple: #ead9eb;
+@maroon: #500824 ;
+@green: #364E39;
+@blue: #97f6ff;
+@light-blue: #B8F2F0;
+@white: #F7F9F7;
+@cream: #F7F4F0;
+@off-white: #f2f2f2;
+
+@font-face {
+    font-family: main_font;
+    src: url('./assets/fonts/Playfair_Display/static/PlayfairDisplay-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: main_font;
+    src: url('./assets/fonts/Playfair_Display/static/PlayfairDisplay-Medium.ttf');
+    font-weight: 500;
+    font-style: normal;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+h1 {
+    color: @dark-purple;
+    font-family: main_font;
+    font-size: 250%;
+  }
+  h2, h3 {
+    color: #444;
+    font-weight: lighter;
+  }
+  body {
+      background-color: @cream;
+      height: 100%;
+      overflow: auto;
+  }
+  p {
+    font-size: 1.6rem;
+  }
+  body, input[type="text"], button {
+    color: #333;
+    font-family: Cambria, Georgia, serif;
+  }
+  button {
+    background-color: #eee;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: black;
+    font-size: 1.2rem;
+    padding: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
+  button:hover {
+    background-color: black;
+    color: white;
+  }
+  button:disabled {
+    background-color: #eee;
+    color: #aaa;
+    cursor: auto;
+  }
+  a{
+    text-decoration:none;
+  }
+  img{
+    width:100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  /* everywhere else */
+  * {
+    font-family: main_font;
+  }
+
+  .background{
+    background-color: @white;
+  }
+
+  .page-title {
+    font-size: 5rem;
+}
+
+
+
+.wrapper{
+  width: 85%;
+  max-width: 1250px;
+  position: relative;
+  z-index: 100;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 85%;
+  max-width: 1250px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 0px;
+  padding-bottom: 100px;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

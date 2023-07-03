@@ -1,0 +1,78 @@
+@import url('../../../styles.less');
+
+
+.navbar{
+  box-shadow: 1px 1px 5px 1px #d7d7d799;
+}
+.example-icon {
+    padding: 0 14px;
+  }
+  
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+
+  .toolbar-icon{
+    transform: scale(.5); 
+  }
+
+
+.container-fluid{
+  width: 85%;
+  max-width: 1250px;
+}
+
+
+@media only screen 
+and (max-width : 1000px) {
+  .collapsed {
+    display: none !important;
+  }
+
+  ul {
+    width:100%;
+  }
+  li {
+    width:100% !important;
+  }
+}
+
+
+.navbar-toggler:hover {
+  background: currentColor;
+}
+.toolbar {
+  background: white;
+  color: @dark-purple !important;
+  padding: 0px;
+  height: fit-content;
+  margin: 0px;
+}
+
+.right-side{
+  margin-left: auto;
+  margin-right: 0px !important;
+}
+
+.toolbar-item{
+  height: 100%;
+  font-size: 16px;
+  padding:5px;
+  width: 100px;
+  text-align: center;
+}
+
+.toolbar-item a {
+  color: @dark-purple !important;
+}
+.toolbar-item .active {
+  border-bottom: 1px @dark-purple solid;
+  clip-path: polygon(0 0, 100% 0, 100% 98%, 0 100%);
+}
+
+
+.toolbar-item:hover{
+  background: @light-purple;
+  cursor: pointer !important;
+}
+

@@ -1,0 +1,21 @@
+<project-template [title]="title" [description]="description"/>
+
+
+<div class="container">
+<photo-gallery [items]="items" [hoverOptions]="hoverOptions" [hoverColor]="hoverOptions.overlayColor"></photo-gallery>
+</div>
+
+<button (click)="showEditGalleryModal=!showEditGalleryModal">Edit Gallery</button>
+
+<div *ngIf="showEditGalleryModal">
+    <label for="numColumnsSlider">Number of Columns: {{hoverOptions.numColumns}}</label>
+    <input id="numColumnsSlider" type="range" [(ngModel)]="hoverOptions.numColumns" min="1" max="10" (change) = "updateHoverOptions()">
+    <label for="showOverlayCheckbox">Show shadow on hover?</label>
+    <input id='showOverlayCheckbox' type="checkbox" [(ngModel)]="hoverOptions.showOverlay" (change)="updateHoverOptions()" >
+    <color-picker *ngIf="hoverOptions.showOverlay" [(color)]="hoverOptions.overlayColor" [changeFunction]="updateHoverOptions"/>
+    <div>
+        {{hoverOptions.overlayColor}}
+    </div>
+    <input type="range">
+    
+</div>

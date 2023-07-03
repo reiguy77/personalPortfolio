@@ -1,0 +1,26 @@
+<div class="goal-container">
+    <div class="goal-header">
+      {{goal.title}} <span class="goal-dates">{{goal.startDate | date}} - {{goal.endDate | date}}</span>
+    </div>
+    <div class="goal-body">
+      <div class="goal-section">
+        <div class="goal-section-header">WHY</div>
+        <div class="goal-section-content">{{goal.why}}</div>
+      </div>
+      <div class="goal-section">
+        <div class="goal-section-header">Duration</div>
+        <div class="goal-section-content">{{goal.duration}}</div>
+      </div>
+      <div class="goal-section">
+        <div class="goal-section-header">Frequency</div>
+        <div class="goal-section-content">{{goal.frequency}}</div>
+      </div>
+
+      <button (click)="showGoalResponseForm = true">Create New Goal Response</button>
+      <div *ngIf="chartData.length>0">
+        <app-chart [chartData]="chartData"  [chartLabels]="chartLabels" [chartOptions]="chartOptions"></app-chart>
+      </div>
+      <app-daily-goal-response-form [goal]="goal" [(show)]="showGoalResponseForm"></app-daily-goal-response-form>
+    </div>
+  </div>
+  

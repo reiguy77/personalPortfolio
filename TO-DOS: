@@ -1,0 +1,45 @@
+TO-DOS:
+High-priority
+---Create nodejs + mongodb backend
+---
+
+1.)ADD README TO EACH component
+2.)CREATE IMAGES USING AI GENERATION
+3.)Create Hobbies Page
+--Main page - High level hobby with cards
+---Cards for each Category
+
+Category #1
+---hobby 1
+---hobby 2 
+---hobby 3
+
+Category #2
+---hobby 1
+---hobby 2 
+---hobby 3
+etc. 
+
+--Hobby page
+----Type(eg. Saxophone)
+---Tags - Music, Creativity, Math
+---Date started 
+---Influences
+---"Favorites"
+
+---Areas trying to improve
+--Images/Videos 
+---Plugins related to hobby
+---Spotify liked songs
+
+---Create layout
+
+All information for individual page should be stored in database
+-Title
+-Description
+-Images + location
+-Sections
+
+
+4.)
+

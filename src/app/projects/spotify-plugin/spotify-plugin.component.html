@@ -1,0 +1,34 @@
+<div *ngIf="isSpotifyAuthenticated">
+
+
+  <div class="spotify-list" *ngIf="songs.length" style="margin-bottom:20px;">
+    <h2 class="spotify-title">My Current Top 5 Spotify Songs</h2>
+    <div *ngFor="let song of songs; let i = index;" class="song" (click)="goToPage(song.link)">
+      <div class="song-details">
+        <div ><h3 class="song-name">{{song.name}}</h3></div>
+        <div ><h4 class="song-artist">{{song.artist}}</h4></div>
+      </div>
+      <div class="song-image">
+        <img src="{{song.imageUrl}}" alt="{{song.album ? song.album : song.name}} Cover Art">
+      </div>
+    </div>
+  </div>
+
+  <div class="spotify-list" *ngIf="recentSongs.length">
+    <h2 class="spotify-title">My Recent Songs</h2>
+    <div *ngFor="let song of recentSongs; let i = index;" class="song" (click)="goToPage(song.track.href)">
+      <div class="song-details">
+        <div ><h3 class="song-name">{{song.track.name}}</h3></div>
+        <div ><h4 class="song-artist">{{song.track.artist}}</h4></div>
+      </div>
+      Listen Count: {{song.listenCount}}
+      <div class="song-image">
+        <img src="{{song.track.album.images[1].url}}" alt="{{song.track.album ? song.track.album : song.track.name}} Cover Art">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!isSpotifyAuthenticated">
+  <button (click)="authenticateAccount()">Click me to authenticate!</button>
+</div>

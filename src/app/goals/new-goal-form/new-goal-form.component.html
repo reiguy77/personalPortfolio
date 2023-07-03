@@ -1,0 +1,30 @@
+
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close" (click)="closeGoalFormModal()">&times;</span>
+    <form>
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title" [(ngModel)]="model.title"><br><br> 
+    
+      <label for="task">Task:</label>
+      <input type="text" id="task" name="task" [(ngModel)]="model.task"><br><br>
+    
+      <label for="frequency">Times per week:</label>
+      <input type="number" id="frequency" name="frequency" [(ngModel)]="model.frequency"><br><br>
+    
+      <label for="duration">Duration:</label>
+      <input type="number" id="duration" name="duration" [(ngModel)]="model.duration"><br><br>
+    
+      <label for="why">Why:</label>
+      <input type="text" id="why" name="why" [(ngModel)]="model.why"><br><br>
+    
+      <label for="startDate">Start Date:</label>
+      <input type="date" id="startDate" name="startDate" [(ngModel)]="model.startDate"><br><br>
+    
+      <label for="endDate">Hopeful End Date:</label>
+      <input type="date" id="endDate" name="endDate" [(ngModel)]="model.endDate"><br><br>
+    
+      <input type="submit" value="Submit" (click)="submitNewGoal()">
+    </form>
+  </div>
+</div>

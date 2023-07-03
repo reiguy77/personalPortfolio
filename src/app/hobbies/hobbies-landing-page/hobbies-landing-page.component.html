@@ -1,0 +1,16 @@
+<div class="background-stars" >
+    <div class="title">
+        <h1>
+            {{title}}
+        </h1>
+    </div>
+    <div class="description">
+        {{description}}
+    </div>
+    <div>
+        <button (click)="openGoalFormModal()">Create New Goal</button>
+    </div>
+    <new-goal-form></new-goal-form>
+    <app-goal *ngFor="let goal of goals" [goal]="goal"></app-goal>
+
+</div>

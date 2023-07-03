@@ -1,0 +1,20 @@
+
+  <div id='image-gallery' class="image-grid" >
+      <div   
+      *ngFor="let image of items"
+      [attr.data-src]="image.src"
+      [attr.data-sub-html]="image.subHtml" class="grid-image-container">
+      <div class="img-wrapper">
+        <img [attr.src]="image.thumb" alt="Image" class="grid-image" loading="lazy">
+          <div class="description-container">
+            <h6 class="description">{{image.description}}</h6>
+          </div>
+    </div>
+    </div>
+  </div>
+
+
+
+
+
+<button (click)="addImage()">Add image</button>

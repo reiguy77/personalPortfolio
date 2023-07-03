@@ -1,0 +1,3 @@
+<a  class="tiptext"  (mouseenter)="showLink()" (mouseleave)="hideLink()" href="{{link}}">{{text}}
+    <iframe id = "linkView" class="description" [src]="link | safe"></iframe>
+</a>

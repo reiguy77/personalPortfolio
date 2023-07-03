@@ -1,0 +1,40 @@
+
+<div *ngIf="show" id="dailyGoalResponseModal" class="modal" #test>
+    <div class="modal-content">
+      <span class="close" (click)="closeModal()">&times;</span>
+      <form>
+        <label for="title">Title:</label>
+        <h1 id="title">{{goal.title}}</h1> 
+      
+        <label for="task">Did you do : {{goal.task}}</label>
+        <label class="switch">
+          <input type="checkbox" name='success' [(ngModel)]="goalResponse.success">
+          <span class="slider round"></span>
+        </label>
+        <div *ngIf="goalResponse.success">
+        <label for="timeComplete">What time did you finish:</label>
+
+        <input type="time" id="timeComplete" name="timeComplete"
+            min="06:00" max="23:00" [(ngModel)]="goalResponse.timeComplete">
+            <br/>
+
+        <label for="duration">How long did you do it for?</label>
+        <input type="number" id="duration" name="duration" [(ngModel)]="goalResponse.duration"><br><br>
+      
+        <label for="madeTaskEasyText">What made it easy?</label>
+        <input type="text" id="madeTaskEasyText" name="madeTaskEasyText" [(ngModel)]="goalResponse.madeTaskEasyText"><br><br>
+      
+        <label for="madeTaskHardText">What made it hard?</label>
+        <input type="text" id="madeTaskHardText" name="madeTaskHardText" [(ngModel)]="goalResponse.madeTaskHardText"><br><br>
+      
+        <label for="accomplishmentText">What were you proud of accomplishing?</label>
+        <input type="text" id="accomplishmentText" name="accomplishmentText" [(ngModel)]="goalResponse.accomplishmentText" required><br><br>
+          
+        <image-upload (imageUploaded)="onImageUploaded($event)" [isMultiple]="true"></image-upload>
+      </div>
+
+        <input type="submit" value="Submit" (click)="submitResponse()">
+      </form>
+    </div>
+  </div>
+  

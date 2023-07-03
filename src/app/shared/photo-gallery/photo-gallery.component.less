@@ -1,0 +1,122 @@
+
+@gap: 0px;
+
+:host {
+	--num-columns:3;
+      --hover-zoom:1;
+      --hover-opacity:0;
+      --hover-color:rgba(0, 0, 0, 0.189);
+	--hover-color-darker: hsl(var(--hover-color),110%);
+  }
+
+.image-grid{
+	--row_height: 50vh; 
+	--gap:@gap;
+	display: grid;
+	grid-template-columns: repeat(var(--num-columns), 1fr);
+	gap: var(--gap);
+	grid-auto-rows: var(--row_height);
+	
+	
+}
+
+@media screen and (max-width: 1024px) {
+	.image-grid {
+		--num_columns: 2;
+		--row_height: 50vw; 
+	}
+	
+}  
+
+.grid-image-container:nth-child(2n) {
+	grid-row: span 1.5;
+	
+}
+
+.image-grid-row-2 {
+	grid-row: span 2;
+}
+
+.grid-image-container{
+	width: 100%;
+	height: 100%;
+	position:relative;
+}
+
+.grid-image-container:hover{
+	cursor: pointer;
+	z-index: 100;
+	overflow: hidden;
+}
+
+
+.img-wrapper {
+    display: inline-block;
+    overflow: hidden;
+    width:100%;
+	height:100%;
+}
+
+.img-wrapper img {
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+
+}
+
+.img-wrapper:hover img {
+    -webkit-transform:scale(var(--hover-zoom)); /* Safari and Chrome */
+    -moz-transform:scale(var(--hover-zoom)); /* Firefox */
+    -ms-transform:scale(var(--hover-zoom)); /* IE 9 */
+    -o-transform:scale(var(--hover-zoom)); /* Opera */
+    transform:scale(var(--hover-zoom));
+}
+
+.img-wrapper::after {
+	background-color: var(--hover-color);
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	content: '';
+	transition: all .5s ease;
+	z-index: 10;
+	opacity: 0;
+  }
+.img-wrapper:hover::after{
+	opacity: var(--hover-opacity);
+}
+
+.img-wrapper:hover .description-container{
+	
+	opacity:1;
+	   
+}
+
+.description-container{
+	--darker-hover-color: hsl( var(--hover-color), 90%, 20%); 
+	position:absolute;
+	bottom:0;
+	background: var(--darker-hover-color);
+	width:100%;
+	height:40px;
+	padding-top:10px;
+	z-index:11;
+	transition: all 1s ease;
+	opacity:0;
+	 
+}
+
+.description{
+	font-weight: 100;
+	font-size:14px;
+	color:rgb(250, 250, 250);
+	text-align: center;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
