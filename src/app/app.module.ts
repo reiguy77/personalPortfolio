@@ -32,6 +32,7 @@ import { HeroImageComponent } from './shared/hero-image/hero-image.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EchartsComponent } from './echarts/echarts.component';
 import { NgxEchartsModule } from 'ngx-echarts';
+import { PieChartComponent } from './charts/pie-chart/pie-chart/pie-chart.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,7 +55,8 @@ import { NgxEchartsModule } from 'ngx-echarts';
     SpotifyPluginComponent,
     ResumeComponent,
     HeroImageComponent,
-    EchartsComponent
+    EchartsComponent,
+    PieChartComponent
   ],
   imports: [
     BrowserModule,
