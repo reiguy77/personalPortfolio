@@ -9,21 +9,21 @@
         <div ><h4 class="song-artist">{{song.artist}}</h4></div>
       </div>
       <div class="song-image">
-        <img src="{{song.imageUrl}}" alt="{{song.album ? song.album : song.name}} Cover Art">
+        <img src="{{song.imageUrl}}" loading='lazy' alt="{{song.album ? song.album : song.name}} Cover Art">
       </div>
     </div>
   </div>
 
   <div class="spotify-list" *ngIf="recentSongs.length">
     <h2 class="spotify-title">My Recent Songs</h2>
-    <div *ngFor="let song of recentSongs; let i = index;" class="song" (click)="goToPage(song.track.href)">
+    <div *ngFor="let song of recentSongs; let i = index;" class="song" (click)="goToPage(song.track.external_urls.spotify)">
       <div class="song-details">
         <div ><h3 class="song-name">{{song.track.name}}</h3></div>
         <div ><h4 class="song-artist">{{song.track.artist}}</h4></div>
       </div>
-      Listen Count: {{song.listenCount}}
+      <!-- Listen Count: {{song.listenCount}} -->
       <div class="song-image">
-        <img src="{{song.track.album.images[1].url}}" alt="{{song.track.album ? song.track.album : song.track.name}} Cover Art">
+        <img src="{{song.track.album.images[1].url}}" loading='lazy' alt="{{song.track.album ? song.track.album : song.track.name}} Cover Art">
       </div>
     </div>
   </div>

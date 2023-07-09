@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { SpotifyPluginService } from 'src/app/services/spotifyPluginService';
 import { ActivatedRoute } from '@angular/router';
+import { LeetCodeService } from 'src/app/services/leetCodeService';
 
 @Component({
   selector: 'app-spotify-plugin',
@@ -10,9 +11,8 @@ import { ActivatedRoute } from '@angular/router';
 export class SpotifyPluginComponent {
 songs:{name:string, artist:string, imageUrl:string, album?:string, link:string}[]  = [];
 recentSongs:any[] = [];
-token = 'BQB60YM6jZwP0X1FYCNQcJlrFLXUcJ8MpCDqrLhUjIN9qLfTOvZBwQYxooJ79JGXxMzDRsk-q4qjS_w9thojPQ-qKUzyzxApcyY-QYs1W8jrelDkE02o2qCD50L0pWElaOOSTUIf347S6eONCt8mgN5oc58en8I-q8CZppG4ASNtrFedOcD2NPiy39K4IzMJf03kdkyskX_uUw3WIQ1pmANBGfvGXH-4ZzN_GhjglEq1DGmWakbbmPvq4NrEL7zmcZfZMKnmXmly9hPtqaKO9Fe59ZDmgggA8fsNCdNILltjZmznS5u8o5tMqsOSf7WjyZdohNw-wS1U-QV3DMkIceENWaU';
 isSpotifyAuthenticated:boolean = false;
-constructor(private spotifyPluginService: SpotifyPluginService, private route: ActivatedRoute) {
+constructor(private spotifyPluginService: SpotifyPluginService, private route: ActivatedRoute, private leetCodeService: LeetCodeService) {
   this.isSpotifyAuthenticated = this.spotifyPluginService.isAuthenticated();
   if(this.isSpotifyAuthenticated){
     this.getSpotifyData();
@@ -72,6 +72,7 @@ ngOnInit(){
       this.isSpotifyAuthenticated = this.spotifyPluginService.isAuthenticated();
       this.getSpotifyData();
       this.getRecentTracks();
+
     }
   // this.getTopTracks();
 }

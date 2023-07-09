@@ -14,8 +14,6 @@ export class ToolbarDataService {
 
   getToolbarData() {
     const data = localStorage.getItem(this.localStorageKey);
-
-    console.log('GETTING TOOLBAR DATA', data)
-    return data ? JSON.parse(data) : null;
+    return data ? JSON.parse(data) : {activePage: 'Home'};
   }
 }

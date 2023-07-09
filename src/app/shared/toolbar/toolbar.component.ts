@@ -25,10 +25,9 @@ const BARS_ICON =
   styleUrls: ['./toolbar.component.less']
 })
 export class ToolbarComponent {
-
+  activePage = 'Home';
   toolbarData: any;
   title = 'rmclaren-website';
-  activePage = 'home';
   pages = [
     {
       name:'Home',
@@ -103,8 +102,10 @@ export class ToolbarComponent {
   constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, private toolbarDataService: ToolbarDataService) {
     iconRegistry.addSvgIconLiteral('thumbs-up', sanitizer.bypassSecurityTrustHtml(THUMBUP_ICON));
     iconRegistry.addSvgIconLiteral('bars', sanitizer.bypassSecurityTrustHtml(BARS_ICON));
-    
     this.toolbarData = this.toolbarDataService.getToolbarData();
+    if(this.toolbarData.activePage == null){
+      this.updateCurrentPage('Home');
+    }
   }
 
 

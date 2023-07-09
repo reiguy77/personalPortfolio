@@ -5,7 +5,6 @@ import * as echarts from 'echarts';
 @Component({
   selector: 'chart-draggable',
   templateUrl: './echarts.component.html',
-  styleUrls: ['./echarts.component.scss'],
 })
 export class EchartsComponent implements OnInit {
   options: EChartsOption;

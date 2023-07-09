@@ -11,8 +11,8 @@ import { Buffer } from 'buffer';
     client_id:string = '6c78272d0d334aeeb0f60408c5a1dc76';
     redirect_uri:string = 'http://localhost:4200/spotify-project/authenticated';
     spotify_api_url = 'https://api.spotify.com/v1/me';
-    access_token:string | undefined;
-    refresh_token:string | undefined;
+    refresh_token:string = "AQDWa4jP6--RTZioCerlES8QyyIK3WDaomNdopxlygic69i6bY8w0VE8SAMD3P-gZJcNhkPMPcLY5uOSp0BZZWiXEQ0B6BZO9EqGEJRFf-GO459_zfBoRDAjMkFCoo9YpWI";
+    access_token:string = "BQD8oyPn4D0p9oipNm2YDlawpUhP_IbGaEU5H8fzV0Pv6k_Zf474azFNvWL-OslnGgqKi7Fb1cmrJGaboF6LmwPUjnmsxFWDX8_xs2E-f6UPnPdmUo5_oATtH9FSGCKxFp7WhWBRHWCYVbLMTdY9ME49DaecUThcU27qXyRSKCYmEDzhONgp9yeJWHZnlVlry11VL2knoVT7j2u_ajYnIo__ONiCh4c";
     expires_at:string | undefined;
 
     constructor (private http: HttpClient, private router: Router){
@@ -31,7 +31,6 @@ import { Buffer } from 'buffer';
       const codeVerifier = this.generateRandomString(64);
       console.log(codeVerifier);
       this.generateCodeChallenge(codeVerifier).then((code_challenge) => {
-        console.log(code_challenge);
         window.localStorage.setItem('code_verifier', codeVerifier);
   
         // Redirect to example:
@@ -75,6 +74,10 @@ import { Buffer } from 'buffer';
 
     checkTokenExpiration(){
       const curr_time = new Date();
+      if(!this.expires_at){
+        this.refreshToken(this.refresh_token);
+        return;
+      }
       const expire_time = new Date(Number(this.expires_at));
         if(this.refresh_token && curr_time.getTime() > expire_time.getTime()){
           this.refreshToken(this.refresh_token);
@@ -92,8 +95,8 @@ import { Buffer } from 'buffer';
     }
 
     async init(){
-      this.access_token = localStorage.getItem('access_token') ?? undefined;
-      this.refresh_token = localStorage.getItem('refresh_token') ?? undefined;
+      // this.access_token = localStorage.getItem('access_token') ?? undefined;
+      // this.refresh_token = localStorage.getItem('refresh_token') ?? undefined;
       this.expires_at = localStorage.getItem('expires_at') ?? undefined;
     }
 
@@ -380,9 +383,7 @@ import { Buffer } from 'buffer';
           body: JSON.stringify(body)
         }
       }
-      console.log(options);
       const res = await fetch(`https://api.spotify.com/${endpoint}`, options);
-      console.log(res);
       return await res.json();
     }
 
