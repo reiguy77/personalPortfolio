@@ -4,28 +4,49 @@
 @import url('https://cdn.jsdelivr.net/npm/lightgallery@2.0.0-beta.4/css/lg-zoom.css');
 @import url('https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.css');
 // @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-@dark-purple: #210124;
-@light-purple: #ead9eb;
-@maroon: #500824 ;
-@green: #364E39;
-@blue: #97f6ff;
-@light-blue: #B8F2F0;
-@white: #F7F9F7;
-@cream: #F7F4F0;
-@off-white: #f2f2f2;
+@primary: #210124;
+@secondary: #EFE9E7;
+@tertiary: #acfff5;
+@tint: #FF116C;
+@medium-shadow: 1px 1px 2px 1px fade(@primary, 10%);
+
+@border-radius: 3px;
+
+@toolbar-height: 60px;
 
 @font-face {
-    font-family: main_font;
-    src: url('./assets/fonts/Playfair_Display/static/PlayfairDisplay-Regular.ttf');
+    font-family: 'primary';
+    src: url('./assets/fonts/Red_Hat_Text/RedHatText-VariableFont_wght.ttf');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: main_font;
-    src: url('./assets/fonts/Playfair_Display/static/PlayfairDisplay-Medium.ttf');
-    font-weight: 500;
-    font-style: normal;
+    font-family: 'primary';
+    src: url('./assets/fonts/Red_Hat_Text/RedHatText-Italic-VariableFont_wght.ttf');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+  font-family: 'secondary';
+  src: url('./assets/fonts/Museo_Moderno/MuseoModerno-VariableFont_wght.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'secondary';
+  src: url('./assets/fonts/Museo_Moderno/MuseoModerno-Italic-VariableFont_wght.ttf');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'special';
+  src: url('./assets/fonts/Abril_Fatface/AbrilFatface-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
 }
 
 html {
@@ -33,16 +54,19 @@ html {
 }
 
 h1 {
-    color: @dark-purple;
-    font-family: main_font;
+    color: @primary;
+    font-family: 'primary';
     font-size: 250%;
+  }
+  h2 {
+    font-size: 40px;
   }
   h2, h3 {
     color: #444;
     font-weight: lighter;
   }
   body {
-      background-color: @cream;
+      background-color: @secondary;
       height: 100%;
       overflow: auto;
   }
@@ -85,11 +109,11 @@ h1 {
   
   /* everywhere else */
   * {
-    font-family: main_font;
+    font-family: 'primary';
   }
 
   .background{
-    background-color: @white;
+    background-color: @secondary;
   }
 
   .page-title {
@@ -111,7 +135,7 @@ h1 {
   max-width: 1250px;
   margin-right: auto;
   margin-left: auto;
-  padding-top: 0px;
+  padding-top: 20px;
   padding-bottom: 100px;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
@@ -121,6 +145,7 @@ h1 {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
+  flex-direction:column;
 }
 
 

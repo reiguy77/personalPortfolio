@@ -1,0 +1,49 @@
+@import url('../../../styles.less');
+
+
+.skill-container{
+    width:100%;
+    padding-bottom: 5px;
+}
+
+.skill-bar-container {
+    width: 100%; /* Full width */
+    background-color: #ddd; /* Grey background */
+    position:relative;
+}
+
+.skills {
+    text-align: right; /* Right-align text */
+    padding-top: 10px; /* Add top padding */
+    padding-bottom: 10px; /* Add bottom padding */
+    color: white; /* White text color */
+    background-color: @tint;
+}
+
+
+.percent{
+    padding-right:10px;
+    position:absolute;
+    left: -10px;
+    bottom: 140%;
+    color: @secondary;
+    background: @primary;
+    padding:5px;
+    border-radius: @border-radius;
+}
+
+.percent::after{
+    content: " ";
+  position: absolute;
+  top: 100%; /* At the bottom of the tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+.skill-text{
+    display: inline-block;
+    padding-bottom: 4px;
+}

@@ -1,6 +1,4 @@
-<div *ngIf="isSpotifyAuthenticated">
-
-
+<div *ngIf="isSpotifyAuthenticated" class="spotify-container">
   <div class="spotify-list" *ngIf="songs.length" style="margin-bottom:20px;">
     <h2 class="spotify-title">My Current Top 5 Spotify Songs</h2>
     <div *ngFor="let song of songs; let i = index;" class="song" (click)="goToPage(song.link)">
@@ -30,5 +28,5 @@
 </div>
 
 <div *ngIf="!isSpotifyAuthenticated">
-  <button (click)="authenticateAccount()">Click me to authenticate!</button>
+  <button (click)="authenticateAccount()" class="authenticate-button">Click me to authenticate!</button>
 </div>

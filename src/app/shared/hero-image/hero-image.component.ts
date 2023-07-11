@@ -13,7 +13,9 @@ export class HeroImageComponent {
 
   @Input() imageUrl = '';
   @Input() header = '';
-  @Input() subHeader = '';
+  @Input() subHeader?:string;
+  @Input() subHeaderList?:string[];
+  @Input() preHeader?:string;
   @Input() tint: 'light' | 'dark' |'none' = 'none';
 
   darkTint = 'rgba(0, 0, 0, 0.8)';

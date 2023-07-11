@@ -1,0 +1,47 @@
+@import url('../../../styles.less');
+
+.social-media-container {
+    max-width: 150px;
+    margin:auto;
+    position: relative;
+
+  z-index: 100;
+}
+
+.social-media-links{
+    display: flex;
+    column-gap: 40px;
+    margin:auto;
+    position: relative;
+    width: 100%;
+    font-size: 3.3rem;
+    padding: 0;
+
+    li {
+        display: inline-block;
+        margin:auto;
+
+        transition: all ease-in-out .3s;
+    }
+
+    .dark {
+        fill: fade(@primary, 85%);
+    }
+
+    .light {
+        fill: fade(@secondary, 85%);
+    }
+
+    li:hover{ 
+        transform: translateY(-3px);
+        transition: all ease-in-out .3s;
+    }
+
+    li:hover .light{
+        fill: @secondary;
+    }
+
+    li:hover  .dark{
+        fill: @primary;
+    }
+}

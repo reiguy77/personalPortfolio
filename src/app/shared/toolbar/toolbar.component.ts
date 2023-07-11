@@ -28,6 +28,7 @@ export class ToolbarComponent {
   activePage = 'Home';
   toolbarData: any;
   title = 'rmclaren-website';
+  logoText = 'Reilly McLaren'
   pages = [
     {
       name:'Home',
@@ -35,7 +36,7 @@ export class ToolbarComponent {
     },
     {
       name:'About Me',
-      link: 'aboutMe'
+      link: 'about-me'
     },
     {
       name:'Resume',

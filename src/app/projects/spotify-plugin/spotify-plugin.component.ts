@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { SpotifyPluginService } from 'src/app/services/spotifyPluginService';
+import { SpotifyPluginService } from 'src/app/projects/spotify-plugin/spotifyPluginService';
 import { ActivatedRoute } from '@angular/router';
-import { LeetCodeService } from 'src/app/services/leetCodeService';
+import { LeetCodeService } from 'src/app/projects/leetcode-plugin/leetCodeService';
 
 @Component({
   selector: 'app-spotify-plugin',

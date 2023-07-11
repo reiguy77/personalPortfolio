@@ -1,0 +1,18 @@
+<div class="inner-container">
+
+    <h2 id="my-developer-journey">My Developer Journey</h2>
+        <ngx-timeline 
+        [events]="events" 
+        [reverseOrder]="options.reverseOrder"
+        [groupEvent]="options.groupBy"
+        [changeSideInGroup] = 'options.changeSide'
+        [centerIconCustomTemplate]="centerIconCustomTemplate"
+        style="max-width:100%"></ngx-timeline>
+    </div>
+
+
+<ng-template #centerIconCustomTemplate let-event=event let-index=index>
+    <div class="icon-container">
+      <img [src]="event.eventInfo.icon"/>
+    </div>
+  </ng-template>

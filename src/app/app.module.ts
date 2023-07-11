@@ -32,7 +32,26 @@ import { HeroImageComponent } from './shared/hero-image/hero-image.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EchartsComponent } from './echarts/echarts.component';
 import { NgxEchartsModule } from 'ngx-echarts';
-import { PieChartComponent } from './charts/pie-chart/pie-chart/pie-chart.component';
+import { PieChartComponent } from './charts/pie-chart/pie-chart.component';
+import { LeetcodePluginComponent } from './projects/leetcode-plugin/leetcode-plugin.component';
+import { SpinnerComponent } from './shared/spinner/spinner.component';
+import { SocialMediaLinksComponent } from './shared/social-media-links/social-media-links.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { LottieModule } from 'ngx-lottie';
+import player from 'lottie-web/build/player/lottie_svg';
+import { SkillBarComponent } from './shared/skill-bar/skill-bar.component';
+import { SkillsComponent } from './skills/skills.component';
+import { JournalComponent } from './journal/journal.component';
+import { NgxTimelineModule } from '@frxjs/ngx-timeline';
+import { DeveloperJourneyComponent } from './about-me/developer-journey/developer-journey.component';
+
+// Note we need a separate function as it's required
+// by the AOT compiler.
+export function playerFactory() {
+  return player;
+}
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,7 +75,14 @@ import { PieChartComponent } from './charts/pie-chart/pie-chart/pie-chart.compon
     ResumeComponent,
     HeroImageComponent,
     EchartsComponent,
-    PieChartComponent
+    PieChartComponent,
+    LeetcodePluginComponent,
+    SpinnerComponent,
+    SocialMediaLinksComponent,
+    SkillBarComponent,
+    SkillsComponent,
+    JournalComponent,
+    DeveloperJourneyComponent
   ],
   imports: [
     BrowserModule,
@@ -70,9 +96,12 @@ import { PieChartComponent } from './charts/pie-chart/pie-chart/pie-chart.compon
     LightgalleryModule,
     ColorPickerModule,
     BrowserAnimationsModule,
+    FontAwesomeModule,
+    NgxTimelineModule,
     NgxEchartsModule.forRoot({
       echarts: () => import('echarts') // Import the echarts library
-    })
+    }),
+    LottieModule.forRoot({ player: playerFactory }),
   ],
   providers: [],
   bootstrap: [AppComponent]

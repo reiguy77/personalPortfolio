@@ -1,8 +1,18 @@
 <!-- Photo by <a href="https://unsplash.com/@ideasboom?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Qingbao Meng</a> on <a href="https://unsplash.com/images/nature?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a> -->
   <div class="hero-image-container" [style.background-image]="'url(' + imageUrl + ')'">
-    <div class="wrapper" >
+    <div class="hero-content">
+      <h4 *ngIf="preHeader" class="pre-header">{{preHeader}}</h4>
       <h1 class="header" [style.color]="textColor +'!important'">{{header}}</h1>
-      <p class="sub-header" [style.color]="textColor +'!important'">{{subHeader}}</p>
+      
+      <p *ngIf='subHeader' class="sub-header" [style.color]="textColor +'!important'">{{subHeader}}</p>
+      <div *ngIf="subHeaderList">
+        <span *ngFor="let item of subHeaderList">
+          {{item}}
+        </span>
+      </div>
+    </div>
+    <div class='hero-footer'>
+      <ng-content  select="[hero-footer]"></ng-content>
     </div>
     <div *ngIf="showTint" class="overlay" [style.background-color]="tintColor"></div>
   </div>

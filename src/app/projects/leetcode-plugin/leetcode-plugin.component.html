@@ -1,0 +1,13 @@
+<div class="wrapper">
+    <div *ngIf='!showSpinner' style="margin:auto">
+        <pie-chart
+            [data]="chartData"
+            [title]="title"
+            [unit]="'Problems'">
+        </pie-chart>  
+    </div>
+    
+</div>
+<div *ngIf="showSpinner">
+    <spinner></spinner>
+</div>

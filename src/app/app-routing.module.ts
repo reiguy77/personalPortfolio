@@ -7,11 +7,14 @@ import { ImageGalleryComponent } from './projects/image-gallery/image-gallery/im
 import { SpotifyPluginComponent } from './projects/spotify-plugin/spotify-plugin.component';
 import { authGuard } from './guards/authentication.guard';
 import { ResumeComponent } from './resume/resume.component';
+import { LeetcodePluginComponent } from './projects/leetcode-plugin/leetcode-plugin.component';
 const routes: Routes = [
-  { path: 'aboutMe', component: AboutMeComponent,
+  { path: 'about-me', component: AboutMeComponent,
   },
   {path:'', component: HomeComponent},
   {path:'hobbies', component: HobbiesLandingPageComponent},
+
+  {path:'leet-code-plugin', component: LeetcodePluginComponent},
   {path:'image-gallery', component: ImageGalleryComponent},
   {path:'spotify-project',   
   component: SpotifyPluginComponent,

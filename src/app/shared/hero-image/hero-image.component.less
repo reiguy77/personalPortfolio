@@ -1,18 +1,19 @@
+@import url('../../../styles.less');
 
 @light-text: #FFFFFF;
-.hero-image-container{
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+  .hero-image-container{
+    position: relative;
+    height: calc(100vh - @toolbar-height);
+    height: 100vh; /* Adjust as needed */
     background-image: url('/assets/img/homePage/heroImage/mountain-background.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
     background-size: cover;
-    z-index: -1;
-    max-height:1500px;
-}
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom:100px;
+    max-height:800px;
+  }
 
 .overlay{
     content: "";
@@ -25,21 +26,40 @@
     z-index: 1;
 }
 
-
-.wrapper {
+  .hero-content {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff; /* Adjust the text color as needed */
+    z-index: 2;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    max-height: 2000px;
+    width: 100%;
+  }
+
+  .hero-footer{
+    position:absolute;
+    height: 10%; 
+    bottom: 20%;
+  }
+
+  .pre-header {
+    color: @tint;
+    font-size: 2.8rem;
+    letter-spacing: 2px;
+    font-weight:bold;
   }
   
   .header {
-    margin-top:-100px;
+    margin-top:-10px;
+    font-weight: bold;
     text-align: center;
     margin-bottom: 1rem;
-    font-size:56px;
+    font-size:8rem;
     width: 60%;
   }
   
@@ -48,3 +68,24 @@
     margin-bottom: 2rem;
     width: 40%;
   }
+
+  span{
+    color: @light-text;
+    font-size:  2rem;
+  }
+
+  span:first-child::before {
+    content: "|";
+    text-align: center;
+    display: inline-block;
+    padding: 0 8px 0 8px;
+    color: fade( @tint, 50%);
+}
+
+  span::after {
+    content: "|";
+    text-align: center;
+    display: inline-block;
+    padding: 0 8px 0 8px;
+    color: fade( @tint, 50%);
+}
