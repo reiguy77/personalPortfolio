@@ -12,33 +12,22 @@ export class HeroImageComponent {
 
 
   @Input() imageUrl = '';
-  @Input() header = '';
-  @Input() subHeader?:string;
-  @Input() subHeaderList?:string[];
-  @Input() preHeader?:string;
   @Input() tint: 'light' | 'dark' |'none' = 'none';
 
-  darkTint = 'rgba(0, 0, 0, 0.8)';
-  lightTint= 'rgba(255, 255, 255, 0.8)';
-  darkText = 'rgb(0,0,0)';
-  lightText = 'rgb(255,255,255)';
   showTint = false; 
-  tintColor = this.lightTint;
-  textColor = this.darkText;
 
   checkTint(){
     this.showTint = this.tint == 'none' ? false : true;
     if(this.showTint){
-        this.setTintColor();
-        this.setTextColor();
+        this.setColor();
     }
     
   }
-  setTintColor(){
-    this.tintColor = this.tint == 'light' ? this.lightTint  : this.darkTint;
-  }
-  setTextColor(){
-    this.textColor = this.tint == 'light' ? this.darkText  : this.lightText;
+  setColor(){
+    const heroImage = document.getElementById('hero-image')
+    if(heroImage){
+      heroImage.classList.add(this.tint == 'light' ? 'light' : 'dark');
+    }
   }
 
   ngOnInit(){
@@ -46,7 +35,6 @@ export class HeroImageComponent {
   }
 
   ngOnChanges(){
-    console.log('HELLO');
     this.checkTint();
   }
 

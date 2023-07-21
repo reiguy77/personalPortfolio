@@ -1,0 +1,61 @@
+@import url('../../variables.less');
+
+form {
+    width: 50%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  form div {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid @secondary;
+    border-radius: 4px;
+    color: @primary;
+  }
+  
+  button[type="submit"] {
+    margin:auto;
+    padding: 10px 20px;
+    background-color: @primary;
+    color: @secondary;
+    border: @secondary 1px solid;
+    border-radius: 4px;
+    cursor: pointer;
+    float:right;
+  }
+
+  button:hover{
+    background-color: @secondary;
+    color: @primary;
+    border: @secondary 1px solid;
+  }
+  
+  button[type="submit"]:disabled {
+    background-color: fade(@secondary, 80%);
+    color: fade(@primary,50%);
+    cursor: not-allowed;
+  }
+
+  .contact-form{
+    width: 80%;
+    padding:20px;
+    border: 1px fade(@tint,80%) solid;
+    border-radius: @border-radius;
+    margin:30px;
+    margin-top: 10px;
+    color: @secondary;
+    font-size: 18px !important;
+  }

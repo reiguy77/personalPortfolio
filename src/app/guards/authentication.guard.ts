@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 import {AuthenticationService} from '../services/authentication.service';
 
-export const authGuard = () => {
+export const AuthGuard = () => {
   const authService = inject(AuthenticationService);
   const router = inject(Router);
   console.log('IN AUTH GUARD');

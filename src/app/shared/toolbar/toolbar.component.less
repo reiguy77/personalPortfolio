@@ -1,11 +1,33 @@
-@import url('../../../styles.less');
+@import url('../../../variables.less');
 
 
 .navbar{
-  box-shadow: 1px 1px 5px 1px #d7d7d799;
+  box-shadow: @darker-tint-shadow;
   min-height: @toolbar-height;
   margin-bottom:0px;
   padding: 0px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index:1000;
+}
+
+.dark{
+  background: @primary;
+  color: @secondary;
+}
+
+.light{
+  background: @secondary;
+  color: @primary;
+}
+
+.dark * {
+  color: @secondary !important;
+}
+
+.light * {
+  color: @primary !important;
 }
 
 .example-icon {
@@ -45,7 +67,6 @@ and (max-width : 1000px) {
 .logo {
   padding-left:10px;
   padding-right:10px;
-  color: @primary;
   font-weight:bold;
   font-size: 3em;
   transition: all ease-in-out .3s;
@@ -53,17 +74,16 @@ and (max-width : 1000px) {
 
 
 .navbar-brand:hover svg, .navbar-brand:hover .logo{
-  color: darken(@tint, 10%) !important;
-  fill: darken(@tint, 10%) !important;
+  color: @tint !important;
   transition: all ease-in-out .3s;
 }
 
 svg{
-  transition: all ease-in-out .3s;
+  transition: all ease-in-out .5s;
 }
 
 .raise-background-on-hover:hover {
-  background-image: linear-gradient(fade(@tint, 40%), fade(@tint, 40%));
+  background-image: linear-gradient(fade(@tint, 50%), fade(@tint, 50%));
   background-size: 100% 110%;
   background-position: 0% 100%;
   transition: background-position .7s, background-size .5s ease-in-out;
@@ -72,9 +92,22 @@ svg{
 .navbar-toggler:hover {
   background: currentColor;
 }
+
+.logo-svg{
+  fill: @secondary;
+  stroke: @tint;
+  stroke-dashoffset: 0;
+  stroke-dasharray: 500;
+  stroke-width: 0px;
+}
+
+.navbar-brand:hover .logo-svg{
+  fill: none;
+  animation: drawSvg 3s alternate infinite;
+  stroke-width: 15px;
+}
+
 .toolbar {
-  background: white;
-  color: @primary !important;
   padding: 0px;
   height: fit-content;
   margin: 0px;
@@ -98,9 +131,6 @@ svg{
   transition: background-size .7s, background-position .5s ease-in-out;
 }
 
-.toolbar-item a {
-  color: @primary !important;
-}
 
 .toolbar-item .active {
   background-image: linear-gradient(@tint, @tint);

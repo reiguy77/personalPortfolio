@@ -4,15 +4,7 @@
 @import url('https://cdn.jsdelivr.net/npm/lightgallery@2.0.0-beta.4/css/lg-zoom.css');
 @import url('https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.css');
 // @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-@primary: #210124;
-@secondary: #EFE9E7;
-@tertiary: #acfff5;
-@tint: #FF116C;
-@medium-shadow: 1px 1px 2px 1px fade(@primary, 10%);
-
-@border-radius: 3px;
-
-@toolbar-height: 60px;
+@import url('./variables.less');
 
 @font-face {
     font-family: 'primary';
@@ -30,21 +22,13 @@
 
 @font-face {
   font-family: 'secondary';
-  src: url('./assets/fonts/Museo_Moderno/MuseoModerno-VariableFont_wght.ttf');
-  font-weight: normal;
-  font-style: normal;
+  src: url('./assets/fonts/Bebas_Neue/BebasNeue-Regular.ttf');
 }
 
-@font-face {
-  font-family: 'secondary';
-  src: url('./assets/fonts/Museo_Moderno/MuseoModerno-Italic-VariableFont_wght.ttf');
-  font-weight: normal;
-  font-style: italic;
-}
 
 @font-face {
   font-family: 'special';
-  src: url('./assets/fonts/Abril_Fatface/AbrilFatface-Regular.ttf');
+  src: url('./assets/fonts/Proza_Libre/ProzaLibre-Regular.ttf');
   font-weight: normal;
   font-style: normal;
 }
@@ -56,22 +40,29 @@ html {
 h1 {
     color: @primary;
     font-family: 'primary';
-    font-size: 250%;
+    font-size: 56px;
   }
   h2 {
-    font-size: 40px;
+    font-size: 36px;
+    font-family: 'secondary';
+    color: fade(@secondary, 90%);
   }
   h2, h3 {
-    color: #444;
     font-weight: lighter;
   }
   body {
-      background-color: @secondary;
+      background-color: @primary;
+      // background: radial-gradient(circle,fade(@primary, 90%) 0%, fade(@primary, 90%) 10%, @primary 30%);
+      color: @secondary;
       height: 100%;
       overflow: auto;
+      
   }
   p {
-    font-size: 1.6rem;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 1px;
+    color: fade(@secondary, 80%);
   }
   body, input[type="text"], button {
     color: #333;
@@ -99,6 +90,14 @@ h1 {
     cursor: auto;
   }
   a{
+    font-weight: bold;
+    color: fade(@tint, 90%);
+    text-decoration:none;
+    
+  }
+
+  a:hover{
+    color: @tint;
     text-decoration:none;
   }
   img{
@@ -112,12 +111,67 @@ h1 {
     font-family: 'primary';
   }
 
-  .background{
+  .background.dark{
+    background-color: @primary;
+  }
+  .background.light{
     background-color: @secondary;
   }
 
   .page-title {
     font-size: 5rem;
+}
+
+
+.tint-underline::after{
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 1px;
+  background-color: @tint;
+}
+
+.section-title{
+    color: @secondary;
+    font-family:'special';
+}
+
+.text-glow{
+  padding:30px;
+  border-radius: @border-radius;
+  box-shadow: @mini-tint-shadow;
+}
+
+.bold-title{
+  color:@secondary;
+  text-align:center;
+  font-size: 56px;
+  max-width: 60%;
+  margin:auto;
+  margin-top: 100px;
+  font-family: 'special';
+  font-weight: bold;
+}
+.border-button{
+  border: 1px solid @tint;
+  box-shadow: @darker-tint-shadow;
+  width: fit-content;
+  min-width: 100px;
+  max-width: 200px;
+  border-radius: @border-radius;
+  background: none;
+  color: @tint;
+  transition: all ease-in-out .3s;
+  font-size: 16px;
+  font-family: 'special'
+}
+
+.border-button:hover{
+  background: @tint;
+  color: @primary;
+  transition: all ease-in-out .3s;
 }
 
 
@@ -148,6 +202,56 @@ h1 {
   flex-direction:column;
 }
 
+#brightness-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: transparent;
+  filter: brightness(100%);
+}
+
+.flex-container{
+  display:flex;
+  width:100%;
+  margin-top:30px;
+  align-items: center;
+}
+
+.vertical-container{
+  display:flex;
+  width:100%;
+  margin-top:30px;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.glow{
+  box-shadow: @tint-shadow;
+  border-radius: @border-radius;
+}
+
+
+@media only screen and (max-width: 900px) {
+  .flex-container{
+    flex-direction: column;
+    transition: all ease-in-out .5s;
+  }
+}
+
+
+@keyframes drawSvg {
+  from {
+    stroke-dashoffset:1500;
+    stroke-dasharray:1500;
+  }
+  to {
+    stroke-dashoffset:0;
+    stroke-dasharray: 1500;	
+  }
+} 
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

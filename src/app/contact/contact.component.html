@@ -1,0 +1,27 @@
+<div class="wrapper">
+    <div class="vertical-container">
+        
+        <h2 class="section-title ">Contact Me!</h2>
+        <p>I'd be happy to get in touch. </p>
+        <form (ngSubmit)="submitForm()" #contactForm="ngForm" class="contact-form">
+            <div>
+              <label for="name">Name:</label>
+              <input type="text" id="name" name="name" required [(ngModel)]="formData.name">
+            </div>
+            <div>
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" required [(ngModel)]="formData.email">
+            </div>
+            <div>
+              <label for="message">Message:</label>
+              <textarea id="message" name="message" required [(ngModel)]="formData.message"></textarea>
+            </div>
+            <button type="submit" [disabled]="!contactForm.valid">Submit</button>
+          </form>
+    
+    
+    </div>
+    <social-media-links></social-media-links>
+    
+</div>
+

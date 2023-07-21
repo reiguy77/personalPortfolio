@@ -1,24 +1,35 @@
-@import url('../../../styles.less');
+@import url('../../../variables.less');
 
 .icon-container {
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
-    height: 50px;
-    width: 50px;
-
+    height: 80px;
+    width: 80px;
     border-radius: 50%;
     background: white;
     overflow:hidden;
-  
+    padding: 10px;
+
+    box-shadow: @darker-tint-shadow;
     img {
         width: 100%;
         height: 100%;
         object-fit: contain;
         overflow:hidden;
+        background:white;
     }
   }
+
+.journey-title{
+  color: @secondary;
+  margin-bottom:30px;
+  padding:30px;
+  font-family:'special';
+  border-radius: @border-radius;
+  box-shadow: @tint-shadow;
+}
 
 .inner-container{
     display: flex;
@@ -27,6 +38,7 @@
     flex-direction: column;
     align-items: center;
     padding-top: 100px;
+    color: @primary !important;
     ngx-timeline{
         max-width: 900px;
         display: flex;
@@ -36,7 +48,7 @@
 
 ::ng-deep ngx-timeline {
     .event-wrapper-container{
-        margin:10px;
+        margin:30px;
     }
 
 
@@ -44,22 +56,52 @@
     font-size:20px !important;
     font-weight:bold !important;
     font-family: 'special';
+
+  }
+
+  .event{
+    background: fade(@secondary, .4);
+    color: @primary !important;
+    
+  }
+  .event * {
+
+    color: @secondary !important;
+  }
+  .event:not(.hour) {
+
+    background: fade(@secondary, 20) !important;
   }
     .hour{
         display:none !important;
     }
     .period-container {
-      background: @primary !important;
+      
+      background: fade(@secondary, 20) !important;
+      border: fade(@secondary, 50) 1px solid;
       border-radius: @border-radius;
-      font-size: 16px;
-      .period-inner-container {
-        background: @primary !important;
+      font-size: 26px;
+      font-weight: 800;
+      // padding:10px 20px 10px 20px !important;
+      padding:0px !important;
+      box-shadow: @darker-tint-shadow;
+      .period-inner-container {      
+        border-radius: @border-radius;
+        color: @secondary;
+        background: none !important;
+        padding:10px  !important;
       }
     }
     .line:not(.first-line):not(.last-line) {
-      background-color: lightgrey !important;
+      background-color: @secondary !important;
+
+      border: 1px solid @tint;
     }
     .center-icon-container .icon {
       background: @primary !important;
+    }
+
+    .event-info-container{
+      padding: 1rem !important;
     }
   }

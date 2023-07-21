@@ -6,6 +6,6 @@ import { Component, Input, ChangeDetectorRef, ChangeDetectionStrategy, SimpleCha
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class CardContainerComponent {
-    @Input() array: Array<any> = [];
+    @Input() array: any[] = [];
 
 }

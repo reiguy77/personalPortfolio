@@ -35,7 +35,7 @@ export class PieChartComponent implements OnChanges{
       tooltip: {
         callbacks: {
             label: (item:any) =>
-                `${item.label}: ${item.formattedValue} ${this.unit}`,
+                `${item.label}: ${item.formattedValue} ${this.unit}${item.formattedValue>1 ? 's' : ''}`,
         },
     },
     }
@@ -74,7 +74,7 @@ export class PieChartComponent implements OnChanges{
       this.chartData.data.labels.push(item.label);
       if(item.color){
         this.chartData.data.datasets[0].backgroundColor.push(item.color);
-        this.chartData.data.datasets[0].borderColor.push(this.colorService.shadeColor(item.color, 30));
+        this.chartData.data.datasets[0].borderColor.push(this.colorService.shadeColor(item.color, -30));
       }
       this.chartData.data.datasets[0].data.push(item.data);
     })

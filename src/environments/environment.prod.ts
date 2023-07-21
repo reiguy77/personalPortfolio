@@ -1,9 +1,9 @@
 export const environment = {
     production: true,
-    graphqlEndpoint: 'https://your-production-graphql-endpoint.com/graphql',
-    mongodb : {
-      host: 'localhost',
-      port: '8080'
+    graphqlEndpoint: 'https://reillymclaren.com/graphql',
+    server : {
+      host: 'backend.reillymclaren.com',
+      protocol: 'https'
     }
   };
   

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { LeetCodeService } from './leetCodeService';
 import { PieChartItem } from '../../charts/pie-chart/pie-chart-item.model';
 
@@ -10,11 +10,13 @@ import { PieChartItem } from '../../charts/pie-chart/pie-chart-item.model';
 export class LeetcodePluginComponent {
 
 
-  username: string = 'reillym';
+  @Input() username: string = 'reiman_77';
+  leetCodeUrl = 'https://leetcode.com/';
   leetCodeData:[] = [];
   chartData:PieChartItem[] = [];
   title:string = 'My LeetCode Stats';
   showSpinner:boolean = true;
+  total:number = 0;
 
   constructor(private leetCodeService:LeetCodeService){
     
@@ -28,15 +30,15 @@ export class LeetcodePluginComponent {
   }
 
   colorMap: {[key: string]: string;} = {
-    'Easy': '#26bf5c',
-    'Medium': '#ffec45',
-    'Hard': '#ff5445'
+    'Easy': '#0cdcab',
+    'Medium': '#ffbb1be4',
+    'Hard': '#ce2626'
   }
 
   parseData(leetCodeData:[]){
     leetCodeData?.forEach((item:{difficulty:string, count:string, submissions:string})=> {
       if(item.difficulty == 'All'){
-        return;
+        this.total = (Number)(item.count);
       }
       else{
         this.chartData.push(new PieChartItem(item.difficulty, item.count, this.colorMap[item.difficulty]))

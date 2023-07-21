@@ -1,13 +1,25 @@
-<div class="wrapper">
-    <div *ngIf='!showSpinner' style="margin:auto">
-        <pie-chart
-            [data]="chartData"
-            [title]="title"
-            [unit]="'Problems'">
-        </pie-chart>  
+<div  *ngIf='!showSpinner' class="vertical-container">
+    <h2 class="section-title">My LeetCode Stats</h2>
+    <div class="text-container">
+
+        <p class="quote">To become a programmer, one must pay their dues on LeetCode. Check out my profile <a [href]='leetCodeUrl+username' target="_blank">here.</a></p>
+        <div class="stats">
+            <h3>Username: <span>{{username}}</span></h3>
+            <h3>Total Problems Solved: <span>{{total}}</span></h3>
+        </div>
     </div>
-    
+    <div class="flex-container">
+        <div class="problem-chart">
+            <pie-chart
+                [data]="chartData"
+                [unit]="'Problem'">
+            </pie-chart>  
+        </div>
+    </div>
 </div>
+
+
+    
 <div *ngIf="showSpinner">
     <spinner></spinner>
 </div>

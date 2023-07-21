@@ -30,9 +30,9 @@ export class HomeComponent {
   ] 
   link = "/hobbies";
   text = "this is a test";
-  landingPreHeader = "Hello, World!"
-  landingHeader="I'm Reilly McLaren."
-  landingSubHeaderItems = ['Full Stack Developer', 'Musician', 'Explorer'];
+  preHeader = "Hello, World!"
+  header="I'm Reilly McLaren."
+  subHeaderItems = ['Full Stack Developer', 'Musician', 'Explorer'];
 
   openImage() {
     console.log('Showing image in popup');

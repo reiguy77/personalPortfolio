@@ -15,12 +15,12 @@ import { environment } from '../../environments/environment';
     }
 
     addGoalResponse (goalResponse: GoalResponse): Observable<any>{
-        let url = `http://${environment.mongodb.host}:${environment.mongodb.port}/api/goalResponse/`;
+        let url = `${environment.server.protocol}://${environment.server.host}/api/goalResponse/`;
         return this.http.post(url, goalResponse);
     }
 
     getGoalResponses(goalId: Number): Observable<any>{
-        let url = `http://${environment.mongodb.host}:${environment.mongodb.port}/api/goalResponse/goalId/${goalId}`;
+        let url = `${environment.server.protocol}://${environment.server.host}/api/goalResponse/goalId/${goalId}`;
         return this.http.get(url);
     }
       

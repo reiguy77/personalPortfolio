@@ -8,9 +8,22 @@ import { StatusService } from './shared/status.service';
 })
 export class AppComponent {
   status = 'DOWN';
-  constructor(private statusService: StatusService) { }
+  constructor(private statusService: StatusService) {
+
+   
+   }
+
   title = 'rmclaren-website';
+  
   onInit(){
+    const background = document.querySelector(".shiny") as HTMLElement;;
+
+  background?.addEventListener("mousemove", (e) => {
+    const { x, y } = background.getBoundingClientRect();
+    background.style.setProperty("--x", ''+(e.clientX - x));
+    background.style.setProperty("--y", ''+(e.clientY - y));
+    console.log('hello');
+  });
 
   this.statusService.getStatus().subscribe(res=>{
     console.log(res);

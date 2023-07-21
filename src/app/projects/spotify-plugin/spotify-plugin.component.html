@@ -30,3 +30,7 @@
 <div *ngIf="!isSpotifyAuthenticated">
   <button (click)="authenticateAccount()" class="authenticate-button">Click me to authenticate!</button>
 </div>
+
+<div *ngIf="showSpinner">
+  <spinner></spinner>
+</div>

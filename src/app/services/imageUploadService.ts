@@ -17,7 +17,7 @@ import { environment } from '../../environments/environment';
         if (file) {
           fd.append('image', file, file.name);
         }
-        return this.http.post(`http://${environment.mongodb.host}:${environment.mongodb.port}/api/imageUpload`, fd);
+        return this.http.post(`${environment.server.protocol}://${environment.server.host}/api/imageUpload`, fd);
       }
       // submitMultipleImages(file: any): Observable<any> {
       //   const fd = new FormData();
@@ -28,6 +28,6 @@ import { environment } from '../../environments/environment';
       // }
     
     getImages(imageIds: String[] ): Observable<any> {
-        return this.http.post(`http://${environment.mongodb.host}:${environment.mongodb.port}/api/imageUpload/findImagesByIds`, imageIds);
+        return this.http.post(`${environment.server.protocol}://${environment.server.host}/api/imageUpload/findImagesByIds`, imageIds);
     }
   }

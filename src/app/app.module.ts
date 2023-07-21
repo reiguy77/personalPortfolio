@@ -37,20 +37,20 @@ import { LeetcodePluginComponent } from './projects/leetcode-plugin/leetcode-plu
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { SocialMediaLinksComponent } from './shared/social-media-links/social-media-links.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { LottieModule } from 'ngx-lottie';
-import player from 'lottie-web/build/player/lottie_svg';
 import { SkillBarComponent } from './shared/skill-bar/skill-bar.component';
-import { SkillsComponent } from './skills/skills.component';
+import { SkillsComponent } from './about-me/skills/skills.component';
 import { JournalComponent } from './journal/journal.component';
 import { NgxTimelineModule } from '@frxjs/ngx-timeline';
 import { DeveloperJourneyComponent } from './about-me/developer-journey/developer-journey.component';
-
-// Note we need a separate function as it's required
-// by the AOT compiler.
-export function playerFactory() {
-  return player;
+import { LottieModule } from 'ngx-lottie';
+import player from 'lottie-web';
+import { QuoteComponent } from './shared/quote/quote.component';
+import { ProjectPreviewComponent } from './projects/project-preview/project-preview.component';
+import { ContactComponent } from './contact/contact.component';
+import { ProjectsComponent } from './projects/projects.component';
+export function playerFactory(): any {  
+  return import('lottie-web');
 }
-
 
 @NgModule({
   declarations: [
@@ -82,7 +82,11 @@ export function playerFactory() {
     SkillBarComponent,
     SkillsComponent,
     JournalComponent,
-    DeveloperJourneyComponent
+    DeveloperJourneyComponent,
+    QuoteComponent,
+    ProjectPreviewComponent,
+    ContactComponent,
+    ProjectsComponent
   ],
   imports: [
     BrowserModule,

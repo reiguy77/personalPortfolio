@@ -1,0 +1,35 @@
+version: "3.3"
+
+services:
+  nginx:
+    container_name: 'nginx-service'
+    build:
+      context: .
+      dockerfile: nginx/Dockerfile
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./nginx.conf:/config
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+      - /tmp/acme_challenge:/tmp/acme_challenge
+    networks:
+      - app
+    restart: always
+
+  webserver:
+    build:
+      context: .
+      dockerfile: web-server/Dockerfile
+    container_name: 'web-server'
+    volumes:
+      - ./web-server:/web-server
+    networks:
+      - app
+    restart: always
+    command: node web-server/server.js
+
+
+networks:
+  app:
+    driver: bridge

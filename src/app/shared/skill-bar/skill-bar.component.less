@@ -1,9 +1,9 @@
-@import url('../../../styles.less');
+@import url('../../../variables.less');
 
 
 .skill-container{
     width:100%;
-    padding-bottom: 5px;
+    padding-bottom: 20px;
 }
 
 .skill-bar-container {
@@ -14,10 +14,10 @@
 
 .skills {
     text-align: right; /* Right-align text */
-    padding-top: 10px; /* Add top padding */
+    padding-top: 20px; /* Add top padding */
     padding-bottom: 10px; /* Add bottom padding */
-    color: white; /* White text color */
-    background-color: @tint;
+    /* White text color */
+    background-color: darken(@tint,10%);
 }
 
 
@@ -26,10 +26,11 @@
     position:absolute;
     left: -10px;
     bottom: 140%;
-    color: @secondary;
-    background: @primary;
+    color: @primary;
+    background: @secondary;
     padding:5px;
     border-radius: @border-radius;
+    font-size: 16px;
 }
 
 .percent::after{
@@ -40,10 +41,11 @@
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
-  border-color: black transparent transparent transparent;
+  border-color: @secondary transparent transparent transparent;
 }
 
 .skill-text{
     display: inline-block;
     padding-bottom: 4px;
+    color: fade(@secondary, 70%); 
 }

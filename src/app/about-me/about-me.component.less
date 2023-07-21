@@ -1,1 +1,145 @@
-@import url('../../styles.less');
+@import url('../../variables.less');
+
+
+
+
+.top-section{
+    width:100%; 
+    display:flex;
+    flex-direction:column;
+    padding:50px;
+    box-shadow: @tint-shadow;
+    border-radius: @border-radius;
+    margin-top:30px;
+
+    .buttons{
+        position: relative;
+        margin:auto;
+    }
+}
+
+.second-section{
+    width:100%; 
+    display:flex;
+    flex-direction: column;
+    padding:50px;
+    margin-top:30px;
+    align-items: center;
+}
+
+
+.header{
+    display: flex;
+    width:100%;
+    align-items:flex-start;
+    margin-bottom: 100px;
+}
+
+.title{
+    display: flex;
+    width: 40%;
+    align-items: center;
+    flex-direction: column;
+}
+
+.position{
+    font-family: 'special';
+    color: fade(@secondary, 70%) !important;
+    margin-bottom: 10px;
+}
+
+.introduction{
+    margin-bottom: 20px;
+    color: fade(@secondary, 50%) !important;
+}
+
+.title-top{
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.blurb{
+    width:50%;
+    margin-left: 10%;
+    margin-top:22px;
+    text-align:left;
+    position:relative;
+    color: fade(@secondary, 70%);
+}
+
+.coding-lottie{
+    width: 100%; /* Adjust the width as needed */
+  height: 300px; /* Adjust the height as needed */
+  overflow: hidden;
+  transform: scale(2);
+  margin:auto;
+}
+
+.heading{
+    color:@secondary;
+    font-family: 'special';
+    min-width:fit-content;
+}
+
+.separator{
+    position:relative;
+    width:100%;
+}
+
+.separator::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 5%;
+    width: 95%;
+    height: 1px;
+    background-color: @tint;
+}
+
+
+.intro-content{
+    display:flex;
+    width:100%;
+}
+
+.basic-information{
+    width:100%;
+}
+
+.skills{
+    width:100%;
+}
+
+.block-text{
+    width:100%;
+    margin-left:10%;
+}
+
+.resume-container{
+    height: 100vh;
+}
+
+.sub-title{
+    width:100%;
+}
+
+
+
+
+@media only screen and (max-width: 900px) {
+    .header{
+        flex-direction:column;
+    }
+    
+    .title{
+        width:100%;
+        margin-bottom: 20px;
+    }
+
+    .blurb{
+        width: 100%;
+        margin:auto;
+        text-align:center;
+    }
+}

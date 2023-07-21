@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import {DomSanitizer} from '@angular/platform-browser';
 import {MatIconRegistry} from '@angular/material/icon';
@@ -25,11 +25,12 @@ const BARS_ICON =
   styleUrls: ['./toolbar.component.less']
 })
 export class ToolbarComponent {
+  @Input() mode?: 'dark' | 'light' = 'dark'
   activePage = 'Home';
   toolbarData: any;
   title = 'rmclaren-website';
   logoText = 'Reilly McLaren'
-  pages = [
+  pages:{name:string, link:string, subPages?:{name:string, link:string}[]}[] = [
     {
       name:'Home',
       link: 'home'
@@ -38,30 +39,37 @@ export class ToolbarComponent {
       name:'About Me',
       link: 'about-me'
     },
-    {
-      name:'Resume',
-      link: 'resume'
+    { name: 'Projects',
+      link: 'projects'
     },
     {
-      name:'Projects',
-      link: 'projects',
-      subPages: [{
-        name: 'Personal Website',
-        link:'#'
-      },
-      {
-        name : 'Robinhood',
-        link:'#'
-      },
-      {
-        name : 'Image Gallery',
-        link:'image-gallery'
-      },
-      {
-        name:'Spotify Project',
-        link: 'spotify-project'
-      }]
+      name:'Contact',
+      link: 'contact'
     },
+    // {
+    //   name:'Resume',
+    //   link: 'resume'
+    // },
+    // {
+    //   name:'Projects',
+    //   link: 'projects',
+    //   subPages: [{
+    //     name: 'Personal Website',
+    //     link:'#'
+    //   },
+    //   {
+    //     name : 'Robinhood',
+    //     link:'#'
+    //   },
+    //   {
+    //     name : 'Image Gallery',
+    //     link:'image-gallery'
+    //   },
+    //   {
+    //     name:'Spotify Project',
+    //     link: 'spotify-project'
+    //   }]
+    // },
     // {
     //   name:'Hobbies',
     //   link: 'hobbies',
@@ -80,10 +88,6 @@ export class ToolbarComponent {
     //     }
     //   ]
     // }
-    {
-      'name':'Spotify',
-      'link': 'spotify-project'
-    }
   ]
 
   updateCurrentPage(newPage:string){

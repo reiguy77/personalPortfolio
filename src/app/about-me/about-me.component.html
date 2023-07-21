@@ -1,19 +1,75 @@
 
-
-
-
 <div class="wrapper">
-    <div style="width:100%; display:flex">
-        <div>
-
-        <h1>Reilly McLaren</h1>
+    <div class="top-section">
+        <div class="header">
+            <div class="title">
+                <div class="title-top">
+                    <h1 class="heading">About Me</h1>
+                    <div class="separator"></div>
+                </div>
+                <div class="sub-title">
+                        <h2 class="position">Full Stack Engineer at ThinkTrends</h2>
+                        <h3 class="introduction">
+                            I build products that are efficient, ranging from beautiful 
+                            web-applications to fully functional backend pipelines. 
+                        </h3>
+                        <div class="coding-lottie">
+                            <ng-lottie
+                            width="100%"
+                            height="100%"
+                            [style]="lottieStyle"
+                              [options]="lottieOptions" 
+                              (animationCreated)="onAnimate($event)">
+                            </ng-lottie>
+                          </div>
+                </div>
+            </div>
+            <div class="blurb">
+                <p>
+                    From the moment I took my first computer science class as a freshman, my journey into the world of coding has evolved into a lifelong passion. Over the past 9 years, I have immersed myself in the art of creation, continuously honing my skills, and embracing the process of learning and exploration. If you're curious, I invite you to take a look at my developer journey. <a href="/about-me#my-developer-journey">Discover it here</a>.
+                    <br/><br/>
+                    Beyond the realm of coding, my interests span a range of interdisciplinary fields, including applied math, music, and health. When I look at the world around us, I am captivated by the vast expanse of data waiting to be tapped into and understood. By analyzing this data, we can uncover our own behavioral patterns and unravel the intricacies of the systems that shape our lives.
+                    My ultimate aspiration is to craft innovative products and tools that empower individuals to reach their full potential and become the best versions of themselves.
+                    <br/><br/>
+                    Let's embark on this exciting journey together, leveraging technology to unlock new possibilities in order to make a positive impact on the world.
+                   
+                </p>
+            </div>
         </div>
-        <skills></skills>
+        <div class="buttons">
+            <button class="border-button" (click)="openNewTab(resume)">View Full Resume</button>
         
+        </div>
+       
     </div>
-    <developer-journey></developer-journey>
+    <div class="second-section">
+        
+        <h2 class="section-title text-glow">My Technology Stack</h2>
+        <div class="flex-container">
+            <div style="width:100%">
 
-   
+                <skills></skills>
+            </div>
+            <div class="block-text">
+                <quote
+                [quote]="'No matter which field of work you want to go in, it is of great importance to learn at least one programming language.'"
+                [person]="'Ram Ray'">
+                </quote>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="wrapper">
+    <div class="vertical-container glow">
+        <div>
+            <leetcode-plugin
+            [username]="leetCodeUsername">
+        </leetcode-plugin>
+        </div>
+    </div>
+</div>
+<div class="wrapper">
+    <developer-journey></developer-journey>   
 </div>
 
 

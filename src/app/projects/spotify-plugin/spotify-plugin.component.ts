@@ -10,6 +10,7 @@ import { LeetCodeService } from 'src/app/projects/leetcode-plugin/leetCodeServic
 })
 export class SpotifyPluginComponent {
 songs:{name:string, artist:string, imageUrl:string, album?:string, link:string}[]  = [];
+showSpinner = true;
 recentSongs:any[] = [];
 isSpotifyAuthenticated:boolean = false;
 constructor(private spotifyPluginService: SpotifyPluginService, private route: ActivatedRoute, private leetCodeService: LeetCodeService) {
@@ -19,6 +20,7 @@ constructor(private spotifyPluginService: SpotifyPluginService, private route: A
     // this.getRecentTracks();
     this.getSongPlayCount();
     this.getRecentSongs();
+    this.showSpinner = false;
   }
  }
 

@@ -12,7 +12,9 @@ export class CardComponent {
   @Input() difficulty: number = 0;
   @Input() title: string = 'Title';
   @Input() description: string = 'Description';
-
+  @Input() link: string = '/';
+  @Input() imageUrl?:string = '/';
+  @Input() bullets?:string[];
   init(){
     this.getFilledStars();
     this.getEmptyStars();
@@ -28,6 +30,10 @@ export class CardComponent {
   ngOnChanges(changes: SimpleChanges) {
     this.getFilledStars();
     this.getEmptyStars();
+  }
+
+  goToLink(){
+    window.open(this.link,'_blank');
   }
 
 }

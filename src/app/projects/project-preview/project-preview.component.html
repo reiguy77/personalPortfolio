@@ -1,0 +1,10 @@
+<div *ngFor="let project of projects">
+    <card 
+    [title]="project.title"
+    [description]="project.description"
+    [difficulty]="project.difficulty"
+    [link]="project.link"
+    [imageUrl]="project.imageUrl"
+    [bullets]="project.bullets">
+    </card>
+</div>
