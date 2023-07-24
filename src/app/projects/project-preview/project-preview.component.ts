@@ -24,7 +24,7 @@ export class ProjectPreviewComponent {
         link: 'https://thinktrends.co',
         bullets: ['Main site for machine learning company', 'Incorporated hubspot chat + forms', "Modernized the site's components"],
         tags: ["Javascript", "HTML", "CSS"],
-        imageUrl: '/assets/img/projects/thinktrends/homepage.png'
+        imageUrl: '/assets/img/projects/thinktrends/homepage.png' 
       },
       {
         difficulty: 3,
