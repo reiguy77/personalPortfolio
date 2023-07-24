@@ -4,6 +4,7 @@ var bodyParser = require("body-parser");
 var cors = require('cors');
 let db = require('./models')
 const leetCodeRoutes = require("./routes/leetCodeRoutes");
+const emailRoutes = require("./routes/emailRoutes");
 
 
 // Create new instance of the express server
@@ -38,8 +39,6 @@ process.on('SIGINT', async () => {
     await db.closeConnection();
     process.exit(0);
 });
-
-
 
 
 
@@ -94,3 +93,6 @@ app.post('/api/imageUpload/findImagesByIds', upload.findImagesByIds);
 
 
 app.use("/api/leetCode", leetCodeRoutes);
+
+
+app.use("/api/email", emailRoutes);

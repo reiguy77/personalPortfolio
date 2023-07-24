@@ -4,7 +4,7 @@ const dbConfig = require("../config/db.config.js");
 mongoose.Promise = global.Promise;
 const db = {};
 db.mongoose = mongoose;
-db.url = process.env.MONGODB_URL;
+db.url = process.env.MONGODB_URL || dbConfig.url;
 // const client = new MongoClient(uri);
 // Set up the connection options (if needed)
 const connectionOptions = {

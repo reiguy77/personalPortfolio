@@ -16,7 +16,16 @@ export class ProjectPreviewComponent {
 
   initializeProjects(){
     this.projects = [
-      
+      {
+        difficulty: 3,
+        title: "ThinkTrends Website",
+        description: `My previous company did an overhaul on their website. 
+                Under the CEO's direction I re-designed this site.`,
+        link: 'https://thinktrends.co',
+        bullets: ['Main site for machine learning company', 'Incorporated hubspot chat + forms', "Modernized the site's components"],
+        tags: ["Javascript", "HTML", "CSS"],
+        imageUrl: '/assets/img/projects/thinktrends/homepage.png'
+      },
       {
         difficulty: 3,
         title: "Robinhood Stocks",
