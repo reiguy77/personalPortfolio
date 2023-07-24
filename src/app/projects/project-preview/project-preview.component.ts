@@ -27,7 +27,7 @@ export class ProjectPreviewComponent {
         imageUrl: '/assets/img/projects/thinktrends/homepage.png' 
       },
       {
-        difficulty: 3,
+        difficulty: 3, 
         title: "Robinhood Stocks",
         description: `I had a desire to automate my investments, so I used a Robinhood 3rd-party API to link to my account
         and make trades daily following a certain set of rules.`,
