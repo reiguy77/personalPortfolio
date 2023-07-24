@@ -13,7 +13,7 @@ export class ProjectPreviewComponent {
   constructor(){
     this.initializeProjects();
   }
-
+ 
   initializeProjects(){
     this.projects = [
       {
