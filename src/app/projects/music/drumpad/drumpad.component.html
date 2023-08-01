@@ -1,0 +1,20 @@
+<div class=wrapper>
+    <div class="button-container">
+
+        <button (click)="play()" class="border-button">{{isPlaying ? 'Stop' : 'Play'}}</button>
+        <button (click)="addTrack()" class="border-button">Add track</button>
+        <button (click)="clear()" class="border-button">Clear</button>
+    </div>
+    <div *ngFor='let item of sounds'>
+        <drum-track 
+        [sound]="item.sound"
+        [totalBeats]="totalBeats"
+        [id]="item.id"
+        [beatsPerMeasure]="beatsPerMeasure"
+        [isPlaying]="isPlaying"
+        [tempo] = "tempo"
+        (onDelete)="deleteTrack($event)"></drum-track>
+    </div>
+    
+    
+</div>

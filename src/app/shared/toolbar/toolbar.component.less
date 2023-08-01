@@ -89,8 +89,13 @@ svg{
   transition: background-position .7s, background-size .5s ease-in-out;
 }
 
+.navbar-toggler{
+  background: fade(@secondary, 90%);
+  border: 1px @secondary solid;
+}
+
 .navbar-toggler:hover {
-  background: currentColor;
+  background: darken(@secondary, .9);
 }
 
 .logo-svg{
@@ -145,3 +150,16 @@ svg{
   cursor: pointer !important;
 }
 
+
+
+
+@media only screen and (max-width: 900px) {
+  .logo{
+    font-size: 16px;
+    margin:auto;
+  }
+
+  .logo-svg{
+    height: 20px;
+  }
+}

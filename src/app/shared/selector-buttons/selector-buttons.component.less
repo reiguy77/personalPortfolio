@@ -1,0 +1,16 @@
+@import url('../../../variables.less');
+/* Style for the buttons */
+.selectable-button {
+    background-color: @primary; /* Default background color */
+    border: 2px solid @secondary; /* Default outline */
+    color: @secondary;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+  }
+  
+  /* Style for the selected button */
+  .selectable-button.selected {
+    background-color: @secondary; /* Change to your desired color */
+    color: @primary;
+  }

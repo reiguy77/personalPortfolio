@@ -48,6 +48,16 @@ import { QuoteComponent } from './shared/quote/quote.component';
 import { ProjectPreviewComponent } from './projects/project-preview/project-preview.component';
 import { ContactComponent } from './contact/contact.component';
 import { ProjectsComponent } from './projects/projects.component';
+import { MetronomeComponent } from './projects/music/metronome/metronome.component';
+import { SelectorButtonsComponent } from './shared/selector-buttons/selector-buttons.component';
+import { DrumpadComponent } from './projects/music/drumpad/drumpad.component';
+import { BeatComponent } from './projects/music/drumpad/beat/beat.component';
+import { TrackComponent } from './projects/music/drumpad/track/track.component';
+import { EditableTextComponent } from './shared/editable-text/editable-text.component';
+import { DropdownComponent } from './shared/dropdown/dropdown.component';
+import { SelectSoundComponent } from './projects/music/drumpad/select-sound/select-sound.component';
+import { ModalComponent } from './shared/modal/modal.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 export function playerFactory(): any {  
   return import('lottie-web');
 }
@@ -86,7 +96,16 @@ export function playerFactory(): any {
     QuoteComponent,
     ProjectPreviewComponent,
     ContactComponent,
-    ProjectsComponent
+    ProjectsComponent,
+    MetronomeComponent,
+    SelectorButtonsComponent,
+    DrumpadComponent,
+    BeatComponent,
+    TrackComponent,
+    EditableTextComponent,
+    DropdownComponent,
+    SelectSoundComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -106,6 +125,7 @@ export function playerFactory(): any {
       echarts: () => import('echarts') // Import the echarts library
     }),
     LottieModule.forRoot({ player: playerFactory }),
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

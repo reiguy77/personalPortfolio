@@ -30,6 +30,9 @@
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@frxjs/ngx-timeline": "2.1",
     "@lottiefiles/lottie-player": "^2.0.2",
+    "@ng-bootstrap/ng-bootstrap": "^14.2.0",
+    "@popperjs/core": "^2.11.6",
+    "@tonaljs/chord": "^5.0.0",
     "body-parser": "^1.20.1",
     "bootstrap": "^5.2.3",
     "bootstrap-icons": "^1.10.3",
@@ -67,6 +70,7 @@
   "devDependencies": {
     "@angular/cli": "~15.2.4",
     "@angular/compiler-cli": "^15.2.4",
+    "@angular/localize": "^15.2.4",
     "@types/jasmine": "~4.0.0",
     "@types/jquery": "^3.5.16",
     "@types/node": "^18.11.18",

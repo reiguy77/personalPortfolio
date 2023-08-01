@@ -1,0 +1,5 @@
+
+<div class="editable-text-container">
+    <h3 class="value" *ngIf="!edit">{{value}}</h3>
+    <input class="editable-input" type="text" *ngIf="edit" [(ngModel)]="value" (keydown.enter)="onEnterKeyPressed($event)">    
+</div>

@@ -10,6 +10,8 @@ import { ResumeComponent } from './resume/resume.component';
 import { LeetcodePluginComponent } from './projects/leetcode-plugin/leetcode-plugin.component';
 import { ContactComponent } from './contact/contact.component';
 import { ProjectsComponent } from './projects/projects.component';
+import { MetronomeComponent } from './projects/music/metronome/metronome.component';
+import { DrumpadComponent } from './projects/music/drumpad/drumpad.component';
 const routes: Routes = [
   { path: 'about-me', component: AboutMeComponent,
   },
@@ -39,6 +41,8 @@ const routes: Routes = [
   //   path: 'login',
   //   loadChildren: () => import('./shared/login/login.module').then(m => m.LoginModule)
   // },
+  {path:'metronome', component:MetronomeComponent},
+  {path:'drumpad', component:DrumpadComponent},
   {path: '**', redirectTo: '', pathMatch: 'full'},
   
 ];

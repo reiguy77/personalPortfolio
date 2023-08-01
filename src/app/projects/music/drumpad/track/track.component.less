@@ -1,0 +1,52 @@
+@import url('../../../../../variables.less');
+
+.track-container{
+    display:flex;
+    flex-direction:row;
+    width:100%;
+    align-items: center;
+    position:relative;
+}
+.beat-container{
+    display:flex;
+    flex-direction: row;
+    width:100%;
+}
+.beat{
+    width: 20px;
+    height:30px;
+    background: lightblue;
+    display:inline-block;
+    padding:0px;
+    margin:0px;
+    border-radius:0px;
+    border: 1px solid @primary;
+}
+
+.beat:hover{
+    // border: 1px solid @secondary;
+    filter: brightness(1.5);
+    transform: scale(1.05);
+}
+
+.selected {
+    background: red;
+}
+.current-beat{
+    border: 1px solid @secondary;
+
+    border-bottom: none;
+}
+
+
+.track-name-container{
+    flex-grow:1;
+    max-width:70px;
+    min-width: 70px;
+}
+
+
+.options-icon{
+
+    font-size: 40px;
+}

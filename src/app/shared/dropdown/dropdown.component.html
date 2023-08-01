@@ -1,0 +1,10 @@
+
+<div style="position:relative">
+    <button *ngIf="title" (click)="toggleDropdown($event)" class="border-button dropdown-placeholder">{{title}}</button>
+    <div (click)="toggleDropdown($event)">
+        <ng-content select="[dropdown-button]"  ></ng-content>
+    </div>
+    <div *ngIf="showDropdown" class="dropdown">
+        <button class='dropdown-button' *ngFor="let option of options" (click)="callFunction(option.function, $event)">{{option.name}}</button>
+    </div>
+</div>

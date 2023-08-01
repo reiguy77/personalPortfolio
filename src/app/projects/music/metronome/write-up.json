@@ -1,0 +1,8 @@
+{
+    "motivation":"I would like to learn about how web audio works, as well as develop a simple application that mimics the ones that I use when practicing saxophone.",
+    "resources":["https://web.dev/audio-scheduling/", "https://medium.com/geekculture/building-a-modular-synth-with-web-audio-api-and-javascript-d38ccdeca9ea","https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Advanced_techniques"],
+    "components":["Metronome", "Varied Beats"],
+    "technologies":["Javascript", "Tone.js"],
+    "lessons_learned":["In web audio don't reuse audiobuffers, it won't work. Reload each time."]
+    
+}

@@ -1,0 +1,32 @@
+@import url('../../../variables.less');
+
+
+.dropdown-placeholder{
+    margin-bottom:0px;
+}
+
+.dropdown{
+    position:absolute;
+    display:flex;
+    flex-direction: column;
+    bottom:2px;
+    left:0;
+    transform: translateY(100%);
+    z-index:1000;
+    border-radius: @border-radius;
+    overflow:hidden;
+    width: fit-content;
+    min-width: 100px;
+
+    border: @secondary 1px solid;
+    box-shadow: 1px 1px 10px 2px fade(@tint,20%);
+}
+
+.dropdown-button{
+    padding: 10px;
+    margin: 0px;
+    border-radius:0px;
+    width:100%;
+    border-bottom: lightgray 1px solid;
+
+}

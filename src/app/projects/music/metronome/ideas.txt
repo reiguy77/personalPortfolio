@@ -1,0 +1,18 @@
+Feedback on whether you're hitting the right timing/pitch. 
+
+
+
+
+I want to make something that takes in a song, and semi-randomly adds in notes based on the chord
+and the given melody. Start simple....
+
+
+
+Things to vary - note length, chord notes, rhythms, words on top
+
+
+
+Converting songs to lyric charts - 
+Convert audio to text
+Add chord changes
+use simplechordpro to format

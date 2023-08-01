@@ -1,0 +1,16 @@
+
+<div class="wrapper">
+    <button (click)="play()">{{isPlaying ? 'Stop' : 'Start'}}</button>
+    <button (click)="choosingBeat = !choosingBeat">{{choosingBeat ? 'Done' : 'Choose Beat'}}</button>
+    
+<input type="range" min="30" max="220" id="tempo" name="tempo" [(ngModel)]="tempo"><label for="tempo" style="color:white">{{tempo}}</label>
+
+<selector-buttons
+    [items]="noteOptions"
+    (buttonClicked)="noteTypeSelected($event)"
+    [selected]="'sixteenth'"
+    >
+</selector-buttons>
+</div>
+
+
