@@ -106,11 +106,10 @@
   }
   
   .header {
-    margin-top:-10px;
     font-weight: bold;
     text-align: center;
-    margin-bottom: 1rem;
-    margin-top: .5rem;
+    margin-bottom: 1.2rem;
+    margin-top: .8rem;
     font-size:8rem;
     color: @secondary;
   }
@@ -118,8 +117,42 @@
   .sub-header {
     text-align: center;
     margin-bottom: 2rem;
-    width: 40%;
+    width: 60%;
+    margin:auto;
+    margin-top: 15px;
   }
+
+  /* Media query for smaller screens */
+@media only screen and (max-width: 768px) {
+  .pre-header {
+    font-size: 2rem;
+  }
+  .header{
+    font-size: 4rem;
+  }
+  .sub-header {
+    font-size: 1.5rem !important;
+    width: 80%;
+  }
+  span{
+    font-size:  1.5rem !important;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .pre-header {
+    font-size: 2rem;
+  }
+  .header{
+    font-size: 3rem;
+  }
+  .sub-header {
+    font-size: 1rem !important;
+  }
+  span{
+    font-size:  1rem !important;
+  }
+}
 
   span{
     font-size:  2rem;

@@ -26,5 +26,8 @@
     </div>
 </div>
 
-<modal #modal [modalConfig]="chooseSoundModalConfig">
-</modal>
+<select-sound #selectSound
+(onNewSoundSelected)="updateSound($event)"
+[sound]="sound"
+></select-sound>
+

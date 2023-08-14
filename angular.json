@@ -107,7 +107,8 @@
             "inlineStyleLanguage": "less",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/assets/temp-sounds"
             ],
             "styles": [
               "@angular/material/prebuilt-themes/purple-green.css",

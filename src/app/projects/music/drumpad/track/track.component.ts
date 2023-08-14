@@ -1,28 +1,34 @@
-import { Component, EventEmitter, HostListener, Input, OnChanges, Output, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { AudioContextService, AudioContextState } from '../audio-context.service';
 import * as uuid from 'uuid';
 import { Subscription } from 'rxjs';
-import { ModalComponent } from 'src/app/shared/modal/modal.component';
+import { SelectSoundComponent } from '../select-sound/select-sound.component';
+import { SavedTrack } from './saved-track';
+import { AssetService } from 'src/app/services/asset-service.service';
 
 @Component({
   selector: 'drum-track',
   templateUrl: './track.component.html',
-  styleUrls: ['./track.component.less']
+  styleUrls: ['./track.component.less'],
+  // providers: [AssetService]
 })
 export class TrackComponent implements OnChanges{
   private audioContextStateSubscription: Subscription;
   @Input() totalBeats: number = 0;
   @Input() sound?:AudioBuffer;
   @Input() id:number = 0;
-  @Input() audioBuffer?: AudioBuffer;
   @Input() isPlaying:boolean = false;
   @Input() tempo: number = 90;
   @Input() beatsPerMeasure: number = 16;
+  @Input() savedTrack?: SavedTrack;
   @Output() onDelete: EventEmitter<any> = new EventEmitter();
+  @Output() onSave: EventEmitter<any> = new EventEmitter();
+
   timerId:any = null;
   soundId = uuid.v4();
   trackName = '';
   trackBeats: {selected:boolean, currentBeat:boolean}[] = []; 
+  previousTrackBeats: {selected:boolean, currentBeat:boolean}[] = []; 
   nextBeatTime:number = 0;
   lastBeatDrawn = 0;
   editName = false;
@@ -47,22 +53,13 @@ export class TrackComponent implements OnChanges{
     {
       name:'Clear Track',
       function: this.clear.bind(this)
-    }
-
+    },
   ]
 
-  chooseSoundModalConfig = {
-    modalTitle: 'Choose Sound File'
-  }
-
-  @ViewChild('modal') private modalComponent!: ModalComponent;
-
-  async openModal() {
-    console.log(this.modalComponent);
-    return await this.modalComponent.open()
-  } 
+  @ViewChild('selectSound') selectSoundComponent!: SelectSoundComponent;
   
-  constructor(private audioContextService: AudioContextService){
+  
+  constructor(private audioContextService: AudioContextService, private assetService:AssetService){
     this.audioContextStateSubscription = this.audioContextService.getAudioContextStateObservable().subscribe((state) => {
       if (state === AudioContextState.Paused) {
         this.isPlaying = false;
@@ -171,10 +168,8 @@ reset(){
 
   updateDrawnBeat() {
     let currentTime = this.audioContextService.getAudioContextTime();
-    let lastTime = 0;
     while (this.beatsInQueue.length && this.beatsInQueue[0].time < currentTime && this.isPlaying) {
         this.currentBeatDrawn = this.beatsInQueue[0].beat;
-        lastTime = this.beatsInQueue[0].time;
         this.beatsInQueue.splice(0,1);   // remove note from queue
     }
     if(this.currentBeatDrawn != this.lastBeatDrawn && this.isPlaying){
@@ -191,8 +186,55 @@ reset(){
     this.onDelete.emit(this.id);
   }
 
+  saveTrack(){
+    let savedTrack = new SavedTrack();
+    savedTrack = {
+      soundId: this.soundId,
+      trackName: this.trackName,
+      selectedBeats: this.trackBeats.map((beat)=>{
+        return beat.selected;
+      })
+    };
+    return savedTrack;
+  }
+
+  async loadTrack(){
+    let savedTrack = this.savedTrack;
+    if(savedTrack){
+      let soundFile = await this.assetService.getFile(savedTrack.soundId);
+      console.log(soundFile);
+      let sound;
+      if(!soundFile){
+        sound = this.audioContextService.loadEmptyBuffer();
+      }
+      else{
+        sound = await this.audioContextService.loadAudioBuffer(soundFile);
+      }
+      this.updateSound({
+        sound,
+        soundId: savedTrack.soundId,
+        name: savedTrack.trackName
+      });
+      savedTrack.selectedBeats.forEach((beat,index)=>{
+        if(index < this.trackBeats.length){
+          this.trackBeats[index].selected = beat;
+        }
+      });
+    }
+  }
+
   selectSound(event?:MouseEvent){
-    this.openModal();
+    this.selectSoundComponent.open();
+  }
+
+  updateSound(newSound?:any){
+    console.log(newSound);
+    if(newSound){
+      this.sound = newSound.sound;
+      this.trackName = newSound.name;
+      this.soundId = newSound.soundId;
+    }
+    console.log(this.trackName);
   }
 
 
@@ -202,6 +244,10 @@ reset(){
     }
     if(changes['isPlaying']){
       this.play();
+    }
+    if(changes['savedTrack']){
+      console.log(changes);
+      this.loadTrack();
     }
   }
 

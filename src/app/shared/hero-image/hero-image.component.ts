@@ -13,7 +13,7 @@ export class HeroImageComponent {
 
   @Input() imageUrl = '';
   @Input() tint: 'light' | 'dark' |'none' = 'none';
-
+  @Input() parallax?:boolean = true;
   showTint = false; 
 
   checkTint(){
@@ -32,6 +32,20 @@ export class HeroImageComponent {
 
   ngOnInit(){
     this.checkTint();
+    if(this.parallax){
+      this.addParallax();
+    }
+
+  }
+
+  addParallax(){
+    window.addEventListener('scroll', function() {
+      const scrollOffset = window.scrollY;
+      const parallaxBg = document.querySelector('.hero-image-container') as HTMLElement;
+      if(parallaxBg){
+        parallaxBg.style.transform = `translateY(${scrollOffset * .5}px)`;
+      }
+    });
   }
 
   ngOnChanges(){

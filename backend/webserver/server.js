@@ -5,23 +5,40 @@ var cors = require('cors');
 let db = require('./models')
 const leetCodeRoutes = require("./routes/leetCodeRoutes");
 const emailRoutes = require("./routes/emailRoutes");
-
+const fileRoutes = require("./routes/fileRoutes");
+var multer = require('multer');
 
 // Create new instance of the express server
 var app = express();
 
+var corsOptions = {
+    origin: 'http://localhost:4201',
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+  }
+
+app.use(cors(corsOptions));
 // Define the way 
 // to consume and produce data through the 
 // exposed APIs
-app.use(bodyParser.json());  
+app.use(bodyParser.json({limit:'900mb'})); 
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // General error handler middleware
 app.use(function(err, req, res, next) {
-  console.error(err.stack);
-  res.status(500).json({ error: 'Internal Server Error' });
+  if(err){
+    if (err instanceof multer.MulterError) {
+      if (err.code === 'LIMIT_FILE_SIZE') {
+        return res.status(400).json({ error: 'File size limit exceeded.' });
+      }
+      // Handle other multer errors if needed
+    }
+    console.error(err.stack);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+    
+  
 });
 
 // Create link to Angular build directory
@@ -42,7 +59,7 @@ process.on('SIGINT', async () => {
 
 
 
-/*  "/api/status"
+/*  "/api/status" 
  *   GET: Get server status
  *   PS: it's just an example, not mandatory
  */
@@ -66,7 +83,7 @@ app.get("/api/goal/:id", goal.findOne);
 app.delete("/api/goal/:id", goal.delete);
 app.delete("/api/goal/", goal.deleteAll);
 app.put("/api/goal/:id", goal.update);
-
+ 
 
 
 goalResponse = require("./controllers/goalResponse.controller.js");
@@ -96,3 +113,4 @@ app.use("/api/leetCode", leetCodeRoutes);
 
 
 app.use("/api/email", emailRoutes);
+app.use("/api/file", fileRoutes);

@@ -1,1 +1,28 @@
-<p>select-sound works!</p>
+
+<ng-template #content let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title">Select a sound</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+        <div>
+            Select from existing sounds:
+            <ul class="select-container">
+                <li *ngFor="let file of existingFiles; let i = index" (click)="selectExistingSound(i)" class="selectable-sound" [ngClass]="{selected: selectedId == i}">
+                    {{file.fileName}}
+                </li>
+            </ul>
+        </div>
+		<div>
+            Or select your own sound:
+            <div class="select-own-sound">
+                <input id='file_input' type="file"  class="file-upload" accept="audio/*" (change)="onFileChange($event)" >
+            </div>
+            
+        </div>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+        <button type="button" class="btn btn-light" (click)="save()">Save</button>
+	</div>
+</ng-template>

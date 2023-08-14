@@ -1,0 +1,18 @@
+
+<ng-template #content let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title">Select a Saved Rhythm!</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+        <div>
+            Select your saved track:
+            <input type="file" class="file-upload" accept="application/json" (change)="onFileChange($event)" >
+        </div>
+		
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+        <button type="button" class="btn btn-light" (click)="upload()">Upload</button>
+	</div>
+</ng-template>

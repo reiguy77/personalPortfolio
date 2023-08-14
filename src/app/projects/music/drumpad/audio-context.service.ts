@@ -53,6 +53,15 @@ export class AudioContextService implements OnDestroy{
     const buffer = await response.arrayBuffer();
     return await this.audioContext.decodeAudioData(buffer);
   }
+  async loadAudioBuffer(file: File): Promise<AudioBuffer> {
+
+    let arrayBuffer = await file.arrayBuffer();
+    return await this.audioContext.decodeAudioData(arrayBuffer);
+  }
+
+  async loadEmptyBuffer(){
+    return await this.audioContext.createBuffer(2, 22050, 44100);
+  }
 
   getAudioContextTime(){
     this.checkAudioContext();

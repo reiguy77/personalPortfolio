@@ -17,6 +17,17 @@ export class ProjectPreviewComponent {
   initializeProjects(){
     this.projects = [
       {
+        difficulty: 4,
+        title: "Drum Machine",
+        description: `I've used virtual drum machines before, and wanted to see what it would take to create my
+        own browser based version`,
+        link: '/drumpad',
+        bullets: ["Learned about audio context used to manage web audio", "Developed several shared components", 
+        "Live visual representation of current sound", "Can load your own sound files", "Ability to save patterns(coming soon)"],
+        tags: ["Angular", "Web Audio", "Javascript", "HTML", "Less"],
+        imageUrl: '/assets/img/projects/drum-machine/initial.png' 
+      },
+      {
         difficulty: 3,
         title: "ThinkTrends Website",
         description: `My previous company did an overhaul on their website. 

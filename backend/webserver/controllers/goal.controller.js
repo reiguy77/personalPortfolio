@@ -37,7 +37,7 @@ exports.create = (req, res) => {
 // Retrieve all Goals from the database.
 exports.findAll = (req, res) => {
     const title = req.query.title;
-    var condition = title ? { title: { $regex: new RegExp(title), $options: "i" } } : {};
+    let condition = title ? { title: { $regex: new RegExp(title), $options: "i" } } : {};
     Goal.find({condition})
     .then(data => {
       res.send(data);

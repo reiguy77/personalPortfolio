@@ -19,7 +19,7 @@ const routes: Routes = [
   // {path:'hobbies', component: HobbiesLandingPageComponent},
 
   // {path:'leet-code-plugin', component: LeetcodePluginComponent},
-  // {path:'image-gallery', component: ImageGalleryComponent},
+  {path:'image-gallery', component: ImageGalleryComponent},
   // {path:'spotify-project',   
   // component: SpotifyPluginComponent,
   // // canActivate: [AuthGuard],

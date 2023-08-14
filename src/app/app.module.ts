@@ -56,8 +56,8 @@ import { TrackComponent } from './projects/music/drumpad/track/track.component';
 import { EditableTextComponent } from './shared/editable-text/editable-text.component';
 import { DropdownComponent } from './shared/dropdown/dropdown.component';
 import { SelectSoundComponent } from './projects/music/drumpad/select-sound/select-sound.component';
-import { ModalComponent } from './shared/modal/modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SelectSavedRhythmComponent } from './projects/music/drumpad/select-saved-rhythm/select-saved-rhythm.component';
 export function playerFactory(): any {  
   return import('lottie-web');
 }
@@ -105,7 +105,7 @@ export function playerFactory(): any {
     EditableTextComponent,
     DropdownComponent,
     SelectSoundComponent,
-    ModalComponent
+    SelectSavedRhythmComponent,
   ],
   imports: [
     BrowserModule,

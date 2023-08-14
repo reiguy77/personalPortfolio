@@ -1,10 +1,13 @@
-<!-- Photo by <a href="https://unsplash.com/@ideasboom?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Qingbao Meng</a> on <a href="https://unsplash.com/images/nature?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a> -->
+<div [ngClass]="{'parallax-container': parallax}">
   <div id='hero-image' class="hero-image-container" [style.background-image]="'url(' + imageUrl + ')'">
-    <div class="hero-content">
-      <ng-content select="[hero-content]"></ng-content>
-    </div>
-    <div class='hero-footer'>
-      <ng-content  select="[hero-footer]"></ng-content>
-    </div>
+    
+  <div class="hero-content">
+    <ng-content select="[hero-content]"></ng-content>
+  </div>
+  <div class='hero-footer'>
+    <ng-content  select="[hero-footer]"></ng-content>
+  </div>
     <div *ngIf="showTint" class="overlay" ></div>
   </div>
+</div>
+
