@@ -1,4 +1,4 @@
-name: GitHub Pages
+name: Deploy to Server
 
 on:
   push:
@@ -14,28 +14,24 @@ jobs:
 
     - name: Setup Node.js
       uses: actions/setup-node@v2
-      with:
-        node-version: '16'
 
     - name: Install dependencies
       run: npm install
 
     - name: Build
-      run: npm run build:prod
+      run: npm run build
 
-    - name: install ssh keys
+    - name: Deploy
+      env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SERVER_IP: ${{ secrets.SSH_HOST }}
+          USERNAME: ${{ secrets.SSH_USER }}
+          DIRECTORY: ${{ secrets.WORK_DIR }}
       run: |
-        install -m 600 -D /dev/null ~/.ssh/id_rsa
-        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-        ssh-keyscan -H ${{ secrets.SSH_HOST }} > ~/.ssh/known_hosts
-    - name: connect and pull
-      run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.WORK_DIR }} && git checkout ${{ secrets.MAIN_BRANCH }} && git pull && exit"
-    - name: cleanup
-      run: rm -rf ~/.ssh
-    # - name: Deploy
-    #   if: success()
-    #   uses: peaceiris/actions-gh-pages@v3
-    #   with:
-    #     github_token: ${{ secrets.GITHUB_TOKEN }}
-    #     publish_dir: dist/rmclaren_website
-    #     enable_jekyll: true
+          mkdir -p ~/.ssh
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H $SERVER_IP >> ~/.ssh/known_hosts
+          
+          # Copy the contents of the dist folder to your server
+          scp -r dist/* $USERNAME@$SERVER_IP:$DIRECTORY
